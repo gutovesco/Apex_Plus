@@ -1,4 +1,5 @@
 import 'package:apex_plus/demo.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -71,15 +72,15 @@ class _LoginPageState extends State<LoginPage>
                   mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(top: 75.0),
+                      padding: EdgeInsets.only(top: 15.0),
                       child: new Image(
-                          width: 250.0,
-                          height: 191.0,
+                          width: 200.0,
+                          height: 171.0,
                           fit: BoxFit.fill,
                           image: new AssetImage('assets/img/login_logo.png')),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 20.0),
+                      padding: EdgeInsets.only(top: 10.0),
                       child: _buildMenuBar(context),
                     ),
                     Expanded(
@@ -221,13 +222,13 @@ class _LoginPageState extends State<LoginPage>
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Container(
-                  width: 300.0,
+                  width: 350.0,
                   height: 190.0,
                   child: Column(
                     children: <Widget>[
                       Padding(
                         padding: EdgeInsets.only(
-                            top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
+                            top: 20.0, bottom: 20.0, left: 25.0, right: 15.0),
                         child: TextField(
                           focusNode: myFocusNodeEmailLogin,
                           controller: loginEmailController,
@@ -319,9 +320,8 @@ class _LoginPageState extends State<LoginPage>
                       tileMode: TileMode.clamp),
                 ),
                 child: MaterialButton(
-                    highlightColor: Colors.transparent,
                     splashColor: Theme.Colors.loginGradientEnd,
-                    //shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5.0))),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 10.0, horizontal: 42.0),
@@ -464,7 +464,7 @@ class _LoginPageState extends State<LoginPage>
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Container(
-                  width: 300.0,
+                  width: 350.0,
                   height: 360.0,
                   child: Column(
                     children: <Widget>[
