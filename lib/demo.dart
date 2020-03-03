@@ -27,7 +27,7 @@ class _GooeyEdgeDemoState extends State<GooeyEdgeDemo> {
           ),
           ContentCard(
             color: 'Yellow',
-            altColor: Color(0xFF904E93),
+            altColor: Color.fromRGBO(66,182,66, 100),
             title: "Start exporting \nwith Apex Plus!",
             subtitle:
             'Skip all the boring burocracy and go straight to the fun part.',
