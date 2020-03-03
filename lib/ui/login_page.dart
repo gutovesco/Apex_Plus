@@ -151,7 +151,7 @@ class _LoginPageState extends State<LoginPage>
         style: TextStyle(
             color: Colors.white,
             fontSize: 16.0,
-            fontFamily: "WorkSansSemiBold"),
+            fontFamily: "SpartanRegular"),
       ),
       backgroundColor: Colors.blue,
       duration: Duration(seconds: 3),
@@ -181,7 +181,7 @@ class _LoginPageState extends State<LoginPage>
                   style: TextStyle(
                       color: left,
                       fontSize: 16.0,
-                      fontFamily: "WorkSansSemiBold"),
+                      fontFamily: "SpartanRegular"),
                 ),
               ),
             ),
@@ -196,7 +196,7 @@ class _LoginPageState extends State<LoginPage>
                   style: TextStyle(
                       color: right,
                       fontSize: 16.0,
-                      fontFamily: "WorkSansSemiBold"),
+                      fontFamily: "SpartanRegular"),
                 ),
               ),
             ),
@@ -234,7 +234,7 @@ class _LoginPageState extends State<LoginPage>
                           controller: loginEmailController,
                           keyboardType: TextInputType.emailAddress,
                           style: TextStyle(
-                              fontFamily: "WorkSansSemiBold",
+                              fontFamily: "SpartanRegular",
                               fontSize: 16.0,
                               color: Colors.black),
                           decoration: InputDecoration(
@@ -246,7 +246,7 @@ class _LoginPageState extends State<LoginPage>
                             ),
                             hintText: "Email Address",
                             hintStyle: TextStyle(
-                                fontFamily: "WorkSansSemiBold", fontSize: 17.0),
+                                fontFamily: "SpartanRegular", fontSize: 17.0),
                           ),
                         ),
                       ),
@@ -263,7 +263,7 @@ class _LoginPageState extends State<LoginPage>
                           controller: loginPasswordController,
                           obscureText: _obscureTextLogin,
                           style: TextStyle(
-                              fontFamily: "WorkSansSemiBold",
+                              fontFamily: "SpartanRegular",
                               fontSize: 16.0,
                               color: Colors.black),
                           decoration: InputDecoration(
@@ -275,7 +275,7 @@ class _LoginPageState extends State<LoginPage>
                             ),
                             hintText: "Password",
                             hintStyle: TextStyle(
-                                fontFamily: "WorkSansSemiBold", fontSize: 17.0),
+                                fontFamily: "SpartanRegular", fontSize: 17.0),
                             suffixIcon: GestureDetector(
                               onTap: _toggleLogin,
                               child: Icon(
@@ -408,23 +408,6 @@ class _LoginPageState extends State<LoginPage>
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(top: 10.0, right: 40.0),
-                child: GestureDetector(
-                  onTap: () => showInSnackBar("Facebook button pressed"),
-                  child: Container(
-                    padding: const EdgeInsets.all(15.0),
-                    decoration: new BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.white,
-                    ),
-                    child: new Icon(
-                      FontAwesomeIcons.facebookF,
-                      color: Color(0xFF0084ff),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
                 padding: EdgeInsets.only(top: 10.0),
                 child: GestureDetector(
                   onTap: () => showInSnackBar("Google button pressed"),
@@ -436,7 +419,7 @@ class _LoginPageState extends State<LoginPage>
                     ),
                     child: new Icon(
                       FontAwesomeIcons.google,
-                      color: Color(0xFF0084ff),
+                      color: Colors.red,
                     ),
                   ),
                 ),
@@ -477,7 +460,7 @@ class _LoginPageState extends State<LoginPage>
                           keyboardType: TextInputType.text,
                           textCapitalization: TextCapitalization.words,
                           style: TextStyle(
-                              fontFamily: "WorkSansSemiBold",
+                              fontFamily: "SpartanRegular",
                               fontSize: 16.0,
                               color: Colors.black),
                           decoration: InputDecoration(
@@ -488,7 +471,7 @@ class _LoginPageState extends State<LoginPage>
                             ),
                             hintText: "Name",
                             hintStyle: TextStyle(
-                                fontFamily: "WorkSansSemiBold", fontSize: 16.0),
+                                fontFamily: "SpartanRegular", fontSize: 16.0),
                           ),
                         ),
                       ),
@@ -505,7 +488,7 @@ class _LoginPageState extends State<LoginPage>
                           controller: signupEmailController,
                           keyboardType: TextInputType.emailAddress,
                           style: TextStyle(
-                              fontFamily: "WorkSansSemiBold",
+                              fontFamily: "SpartanRegular",
                               fontSize: 16.0,
                               color: Colors.black),
                           decoration: InputDecoration(
@@ -516,7 +499,7 @@ class _LoginPageState extends State<LoginPage>
                             ),
                             hintText: "Email Address",
                             hintStyle: TextStyle(
-                                fontFamily: "WorkSansSemiBold", fontSize: 16.0),
+                                fontFamily: "SpartanRegular", fontSize: 16.0),
                           ),
                         ),
                       ),
@@ -533,7 +516,7 @@ class _LoginPageState extends State<LoginPage>
                           controller: signupPasswordController,
                           obscureText: _obscureTextSignup,
                           style: TextStyle(
-                              fontFamily: "WorkSansSemiBold",
+                              fontFamily: "SpartanRegular",
                               fontSize: 16.0,
                               color: Colors.black),
                           decoration: InputDecoration(
@@ -544,7 +527,7 @@ class _LoginPageState extends State<LoginPage>
                             ),
                             hintText: "Password",
                             hintStyle: TextStyle(
-                                fontFamily: "WorkSansSemiBold", fontSize: 16.0),
+                                fontFamily: "SpartanRegular", fontSize: 16.0),
                             suffixIcon: GestureDetector(
                               onTap: _toggleSignup,
                               child: Icon(
@@ -570,7 +553,7 @@ class _LoginPageState extends State<LoginPage>
                           controller: signupConfirmPasswordController,
                           obscureText: _obscureTextSignupConfirm,
                           style: TextStyle(
-                              fontFamily: "WorkSansSemiBold",
+                              fontFamily: "SpartanRegular",
                               fontSize: 16.0,
                               color: Colors.black),
                           decoration: InputDecoration(
@@ -581,7 +564,7 @@ class _LoginPageState extends State<LoginPage>
                             ),
                             hintText: "Confirmation",
                             hintStyle: TextStyle(
-                                fontFamily: "WorkSansSemiBold", fontSize: 16.0),
+                                fontFamily: "SpartanRegular", fontSize: 16.0),
                             suffixIcon: GestureDetector(
                               onTap: _toggleSignupConfirm,
                               child: Icon(

@@ -92,10 +92,10 @@ class _ContentCardState extends State<ContentCard> {
       children: <Widget>[
         Text(widget.title,
             textAlign: TextAlign.center,
-            style: TextStyle(height: 1.2, fontSize: 30.0, fontFamily: 'DMSerifDisplay', color: Colors.white, package: App.pkg)),
+            style: TextStyle(height: 1.2, fontSize: 30.0, fontFamily: 'SpartanRegular', color: Colors.white, package: App.pkg)),
         Text(widget.subtitle,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w300, fontFamily: 'OpenSans', color: Colors.white, package: App.pkg)),
+            style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w300, fontFamily: 'SpartanRegular', color: Colors.white, package: App.pkg)),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 36.0),
           child: MaterialButton(
@@ -109,7 +109,7 @@ class _ContentCardState extends State<ContentCard> {
                 style: TextStyle(
                     fontSize: 16,
                     letterSpacing: .8,
-                    fontFamily: 'OpenSans',
+                    fontFamily: 'SpartanRegular',
                     fontWeight: FontWeight.w600,
                     color: Colors.white,
                     package: App.pkg)

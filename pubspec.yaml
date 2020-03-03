@@ -56,3 +56,11 @@ flutter:
     - family: WorkSansMedium
       fonts:
         - asset: assets/fonts/Work_Sans/WorkSans-Medium.ttf
+
+    - family: SpartanRegular
+      fonts:
+        - asset: assets/fonts/static/Spartan-Regular.ttf
+
+    - family: SpartanLight
+      fonts:
+        - asset: assets/fonts/static/Spartan-Light.ttf
