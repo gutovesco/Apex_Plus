@@ -22,22 +22,22 @@ class _GooeyEdgeDemoState extends State<GooeyEdgeDemo> {
           ContentCard(
             color: 'Red',
             altColor: Color(0xFF4259B2),
-            title: "Wake up gently \nwith sounds of nature",
-            subtitle: 'Relax your mind and create inner peace with soothing sounds of nature.',
+            title: "Track you progress \ninside our app.",
+            subtitle: 'Easy to understand and fun to use even if you are a beginner.',
           ),
           ContentCard(
             color: 'Yellow',
             altColor: Color(0xFF904E93),
-            title: "Clear your mind \nwith breathing exercises",
+            title: "Start exporting \nwith Apex Plus!",
             subtitle:
-            'Melt your stresses and anxieties away with 50+ breathing exercises.',
+            'Skip all the boring burocracy and go straight to the fun part.',
           ),
           ContentCard(
             color: 'Blue',
             altColor: Color(0xFFFFB138),
-            title: "Fall asleep \nwith bedtime stories",
+            title: "Get in contact \nwith foreigner investors",
             subtitle:
-            'Enjoy a restful night’s sleep with relaxing activities and calm bedtime stories.',
+            'Interact with foreigner investors and boost your profile!.',
           ),
         ],
       ),

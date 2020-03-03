@@ -115,7 +115,9 @@ class _ContentCardState extends State<ContentCard> {
                     package: App.pkg)
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
         )
       ],
