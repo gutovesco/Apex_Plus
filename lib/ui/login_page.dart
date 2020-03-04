@@ -1,5 +1,6 @@
 import 'package:apex_plus/demo.dart';
 import 'package:apex_plus/pages/questions.dart';
+import 'package:apex_plus/main_menu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -335,7 +336,7 @@ class _LoginPageState extends State<LoginPage>
                         context,
                         new MaterialPageRoute(
                             builder: (BuildContext context) =>
-                                new GooeyEdgeDemo()));
+                                MainMenuPage()));
                   },
                 ),
               ),
@@ -377,7 +378,7 @@ class _LoginPageState extends State<LoginPage>
                 ),
                 child: Container(
                   width: 300.0,
-                  height: 360.0,
+                  height: 480.0,
                   child: Column(
                     children: <Widget>[
                       Padding(
@@ -507,12 +508,40 @@ class _LoginPageState extends State<LoginPage>
                           ),
                         ),
                       ),
+                      Container(
+                        width: 250.0,
+                        height: 1.0,
+                        color: Colors.grey[400],
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                            top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
+                        child: TextField(
+                          focusNode: myFocusNodePassword,
+                          controller: signupPasswordController,
+                          obscureText: _obscureTextSignup,
+                          style: TextStyle(
+                              fontFamily: "SpartanRegular",
+                              fontSize: 16.0,
+                              color: Colors.black),
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            icon: Icon(
+                              FontAwesomeIcons.building,
+                              color: Colors.black,
+                            ),
+                            hintText: "CNPJ",
+                            hintStyle: TextStyle(
+                                fontFamily: "SpartanRegular", fontSize: 16.0),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 340.0),
+                margin: EdgeInsets.only(top: 460.0),
                 decoration: new BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(5.0)),
                   boxShadow: <BoxShadow>[
@@ -563,7 +592,7 @@ class _LoginPageState extends State<LoginPage>
               )
             ],
           ),
-        ],
+        Container(width: 50.0, height: 100.0,)],
       ),
       ),
     );
