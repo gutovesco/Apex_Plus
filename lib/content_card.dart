@@ -100,15 +100,15 @@ class _ContentCardState extends State<ContentCard> {
           padding: const EdgeInsets.symmetric(horizontal: 36.0),
           child: MaterialButton(
             elevation: 0,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
             color: widget.altColor,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Text(
                 'Get Started',
                 style: TextStyle(
-                    fontSize: 16,
-                    letterSpacing: .8,
+                    fontSize: 20,
+                    letterSpacing: .10,
                     fontFamily: 'SpartanRegular',
                     fontWeight: FontWeight.w600,
                     color: Colors.white,

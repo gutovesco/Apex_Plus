@@ -14,7 +14,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return new MaterialApp(
-      title: 'TheGorgeousLogin',
+      title: 'Apex Plus',
       theme: new ThemeData(
         primarySwatch: Colors.blue,
       ),
