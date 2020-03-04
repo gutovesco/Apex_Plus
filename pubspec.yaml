@@ -17,6 +17,7 @@ dev_dependencies:
   custom_switch:
   flutter_screenutil: ^1.0.2
   font_awesome_flutter: ^8.0.1
+  clay_containers:
 
 flutter:
 

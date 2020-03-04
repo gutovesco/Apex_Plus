@@ -1,3 +1,4 @@
+import 'package:apex_plus/pages/questions.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter/scheduler.dart';
@@ -54,15 +55,15 @@ class _ContentCardState extends State<ContentCard> {
         Container(
           alignment: Alignment.center,
           child: Padding(
-            padding: const EdgeInsets.only(top: 75.0, bottom: 25.0),
+            padding: const EdgeInsets.only(top: 50.0, bottom: 35.0),
             child: Column(
               children: <Widget>[
                 //Top Image
                 Expanded(
                   flex: 3,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Image.asset('images/Illustration-${widget.color}.png', fit: BoxFit.contain, package: App.pkg),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+                    child: Image.asset('images/Illustration-${widget.color}.png', fit: BoxFit.contain, package: App.pkg, scale: 1.5),
                   ),
                 ),
 
@@ -116,8 +117,12 @@ class _ContentCardState extends State<ContentCard> {
               ),
             ),
             onPressed: () {
-              Navigator.pop(context);
-            },
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                new Quiz1()));
+                  },
           ),
         )
       ],

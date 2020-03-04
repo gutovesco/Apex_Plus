@@ -1,4 +1,5 @@
 import 'package:apex_plus/demo.dart';
+import 'package:apex_plus/pages/questions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -52,7 +53,7 @@ class _LoginPageState extends State<LoginPage>
         child: SingleChildScrollView(
           child: Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height >= 775.0
+            height: MediaQuery.of(context).size.height >= 745.0
                 ? MediaQuery.of(context).size.height
                 : 775.0,
             decoration: new BoxDecoration(
@@ -70,7 +71,7 @@ class _LoginPageState extends State<LoginPage>
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: 75.0),
+                  padding: EdgeInsets.only(top: 10.0),
                   child: new Image(
                       width: 250.0,
                       height: 191.0,
@@ -551,8 +552,15 @@ class _LoginPageState extends State<LoginPage>
                             fontFamily: "WorkSansBold"),
                       ),
                     ),
-                    onPressed: () => showInSnackBar("SignUp button pressed")),
+                    onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                new GooeyEdgeDemo()));
+                  },
               ),
+              )
             ],
           ),
         ],
