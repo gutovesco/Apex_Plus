@@ -1,40 +1,40 @@
-import 'package:apex_plus/commons/narrow_app_bar.dart';
 import 'package:apex_plus/styleguide/colors.dart';
 import 'package:apex_plus/styleguide/text_style.dart';
+import 'package:apex_plus/theme.dart';
 import 'package:flutter/material.dart';
+
+import 'commons/collapsing_navigation_drawer_widget.dart';
+
+/*child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+           IconButton(
+        icon: Icon(Icons.insert_chart),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+            ],
+          )
+*/
 
 class CommunityPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NarrowAppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-            Icon(
-              Icons.arrow_back,
-              size: 20.0,
-              semanticLabel: 'Go back',
-            ),
-            ],
-          )
-        ),
-        trailing: Text(
-          "SELECT",
-          style: actionMenuStyle,
-        ),
+     appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: drawerBackgroundColor,
+        title: Text("Community"),
       ),
+      drawer: CollapsingNavigationDrawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(16),
             child: Text(
-              "Community",
+              "Posts",
               style: headingTextStyle.copyWith(color: Colors.black),
             ),
           ),
