@@ -1,3 +1,4 @@
+
 import 'package:apex_plus/pages/notifications.dart';
 
 import '../custom_navigation_drawer.dart';
@@ -81,7 +82,7 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
                       context,
                       new MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              commentFoundation()));
+                              NotificationPage()));
               },
               child: AnimatedIcon(
                 icon: AnimatedIcons.close_menu,

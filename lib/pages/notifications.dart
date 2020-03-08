@@ -4,12 +4,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 
 //The content of the notification tab.
-class Notification extends StatefulWidget {
+class NotificationPage extends StatefulWidget {
   @override
-  _NotificationState createState() => new _NotificationState();
+  _NotificationPageState createState() => new _NotificationPageState();
 }
 
-class _NotificationState extends State<Notification> {
+class _NotificationPageState extends State<NotificationPage> {
+
+      final List<String> subjects = ["Forum", "Legislation"];
+  String selectedSubject = "Forum";
   @override
   Widget build(BuildContext context) {
     return _buildPostList();
@@ -25,6 +28,24 @@ class _NotificationState extends State<Notification> {
                 child: new Stack(children: <Widget>[
               new Column(
                 children: <Widget>[
+           DropdownButton<String>(
+          focusColor: Colors.black,
+        iconSize: 24,
+        elevation: 6,
+        style: TextStyle(color: Colors.black, fontFamily: "SpartanRegular",),
+        value: selectedSubject,
+        onChanged: (value) {
+          setState(() {
+            selectedSubject = value;
+          });
+        },
+        items: subjects.map<DropdownMenuItem<String>>((value) {
+          return DropdownMenuItem(
+            child: Text(value),
+            value: value,
+          );
+        }).toList(),
+      ),
                   Container(
                       margin: EdgeInsets.only(top: 0.0, left: 12.0),
                       child: DummyPost()),
@@ -193,6 +214,9 @@ class commentFoundation extends StatefulWidget {
 class _commentFoundationState extends State<commentFoundation> {
   ScrollController _scrollController = new ScrollController();
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -230,6 +254,7 @@ class individualComment extends StatefulWidget {
 }
 
 class _individualCommentState extends State<individualComment> {
+
   @override
   Widget build(BuildContext context) {
     return new Stack(
@@ -280,7 +305,7 @@ class _MainScreenstate extends State<MainScreen> with TickerProviderStateMixin {
   String _lastSelected = '0';
   final List<Widget> _bodyOptions = [
     HomePage(),
-    Notification(),
+    NotificationPage(),
   ];
   int _selectedIndex = 0;
   bool tab = true;

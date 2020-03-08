@@ -1,3 +1,4 @@
+import 'package:apex_plus/pages/loading_page.dart';
 import 'package:apex_plus/ui/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clay_containers/clay_containers.dart';
@@ -288,7 +289,7 @@ class Summary extends StatelessWidget {
                       context,
                       new MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              LoginPage()));
+                              LoadingPage()));
                 },
                child: Center(
                  child: ClayContainer(
