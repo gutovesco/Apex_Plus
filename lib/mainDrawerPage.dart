@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Custom Navigation Drawer Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xFF4dff4d),
       ),
       debugShowCheckedModeBanner: false,
       home: MyHomePage(),
@@ -23,7 +23,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: drawerBackgroundColor,
+        backgroundColor: Colors.white,
         title: Text("Collapsing Navigation Drawer/Sidebar",),
       ),
       //drawer: CollapsingNavigationDrawer(),

@@ -8,9 +8,9 @@ class NavigationModel {
 }
 
 List<NavigationModel> navigationItems = [
-  NavigationModel(title: "Dashboard", icon: Icons.insert_chart),
-  NavigationModel(title: "Errors", icon: Icons.error),
-  NavigationModel(title: "Search", icon: Icons.search),
+  NavigationModel(title: "Create Post", icon: Icons.add),
+  NavigationModel(title: "Manage Posts", icon: Icons.dashboard),
   NavigationModel(title: "Notifications", icon: Icons.notifications),
   NavigationModel(title: "Settings", icon: Icons.settings),
+  NavigationModel(title: "About", icon: Icons.info),
 ];

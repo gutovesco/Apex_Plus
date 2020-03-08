@@ -4,6 +4,7 @@ import 'profile_page.dart';
 import 'home_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
+
 class MainMenuPage extends StatefulWidget {
   @override
   _MainMenuPageState createState() => _MainMenuPageState();
@@ -46,8 +47,8 @@ class _MainMenuPageState extends State<MainMenuPage> {
       bottomNavigationBar: CurvedNavigationBar(
         height: 60.0,
         index: _page,
-        color: Colors.green,
-        backgroundColor: Colors.blue,
+        color: Color(0xFF4dff4d),
+        backgroundColor: Colors.white,
         animationCurve: Curves.linearToEaseOut,
         items: <Widget>[
           Column(
@@ -80,7 +81,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Icon(
-                Icons.attach_money,
+                Icons.people,
                 color: Colors.white,
               ),
               Text(

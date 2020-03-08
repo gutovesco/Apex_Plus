@@ -36,14 +36,16 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
 
   Widget getWidget(context, widget) {
     return Material(
+      color: Colors.white,
       elevation: 80.0,
       child: Container(
         width: widthAnimation.value,
-        color: drawerBackgroundColor,
+        color: Colors.white,
         child: Column(
           children: <Widget>[
-            CollapsingListTile(title: 'Techie', icon: Icons.person, animationController: _animationController,),
-            Divider(color: Colors.grey, height: 40.0,),
+            SizedBox(height: 60),
+            CollapsingListTile(title: 'Gutro', icon: Icons.person, animationController: _animationController,),
+            Divider(color: Colors.black, height: 40.0,),
             Expanded(
               child: ListView.separated(
                 separatorBuilder: (context, counter) {
@@ -77,8 +79,8 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
               child: AnimatedIcon(
                 icon: AnimatedIcons.close_menu,
                 progress: _animationController,
-                color: selectedColor,
-                size: 50.0,
+                color: Colors.black54,
+                size: 30.0,
               ),
             ),
             SizedBox(

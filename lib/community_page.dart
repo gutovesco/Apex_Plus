@@ -1,41 +1,49 @@
 import 'package:apex_plus/styleguide/colors.dart';
 import 'package:apex_plus/styleguide/text_style.dart';
-import 'package:apex_plus/theme.dart';
 import 'package:flutter/material.dart';
-
 import 'commons/collapsing_navigation_drawer_widget.dart';
 
-/*child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-           IconButton(
-        icon: Icon(Icons.insert_chart),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-      ),
-            ],
-          )
-*/
 
-class CommunityPage extends StatelessWidget {
+class CommunityPage extends StatefulWidget {
   @override
+  _CommunityPage createState() => _CommunityPage();
+}
+
+class _CommunityPage extends State<CommunityPage> {
+
+final List<String> lista = [
+"Gutro",
+"kyle",
+"Samuca",
+"Yve",
+"Johm"
+];
+
+  final List<String> subjects = ["Date", "Views", "Name", "User", "Filter"];
+  String selectedSubject = "Filter";
   Widget build(BuildContext context) {
     return Scaffold(
      appBar: AppBar(
         elevation: 0.0,
-        backgroundColor: drawerBackgroundColor,
-        title: Text("Community"),
+        backgroundColor: Color(0xFF4dff4d),
+        title: Text("Community", 
+        style: TextStyle(
+          fontFamily: "SpartanRegular",
+          color: Colors.white 
+          ),
+        ),
       ),
       drawer: CollapsingNavigationDrawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          SizedBox(height: 15),
           Padding(
             padding: const EdgeInsets.all(16),
             child: Text(
               "Posts",
-              style: headingTextStyle.copyWith(color: Colors.black),
+              textAlign: TextAlign.center,
+              style: headingTextStyle.copyWith(color: Colors.black, fontFamily: "SpartanRegular",),
             ),
           ),
           Card(
@@ -50,8 +58,8 @@ class CommunityPage extends StatelessWidget {
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     prefixIcon: Icon(Icons.search),
-                    hintText: "Search",
-                    hintStyle: whiteSubHeadingTextStyle.copyWith(color: hintTextColor)),
+                    hintText: "Search for a post",
+                    hintStyle: whiteSubHeadingTextStyle.copyWith(color: Colors.grey[600], fontFamily: "SpartanRegular", fontSize: 14.0)),
               ),
             ),
           ),
@@ -59,12 +67,15 @@ class CommunityPage extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: Row(
                 children: <Widget>[
+            SizedBox(
+             width: 10,
+             ),
                   Text(
-                    "Super likes",
-                    style: subTitleStyle.copyWith(color: Colors.black),
+                    "New posts",
+                    style: TextStyle(color: Colors.black, fontFamily: "SpartanRegular",),
                   ),
                   SizedBox(
-                    width: 20,
+                    width: 10,
                   ),
                   Container(
                     width: 25,
@@ -73,16 +84,30 @@ class CommunityPage extends StatelessWidget {
                     child: Center(
                       child: Text(
                         "5",
-                        style: whiteSubHeadingTextStyle,
+                        style: whiteSubHeadingTextStyle, 
                         textAlign: TextAlign.center,
                       ),
                     ),
                   ),
                   Spacer(),
-                  Text(
-                    "1h",
-                    style: subTitleStyle.copyWith(color: Colors.black),
-                  ),
+                  DropdownButton<String>(
+          focusColor: Colors.black,
+        iconSize: 24,
+        elevation: 6,
+        style: TextStyle(color: Colors.black, fontFamily: "SpartanRegular",),
+        value: selectedSubject,
+        onChanged: (value) {
+          setState(() {
+            selectedSubject = value;
+          });
+        },
+        items: subjects.map<DropdownMenuItem<String>>((value) {
+          return DropdownMenuItem(
+            child: Text(value),
+            value: value,
+          );
+        }).toList(),
+      ),
                 ],
               )),
           Expanded(
@@ -94,59 +119,39 @@ class CommunityPage extends StatelessWidget {
                   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   child: ListTile(
                     title: Text(
-                      "Anne",
-                      style: titleStyle,
+                       "Where to get packing list?",
+                      style: titleStyle.copyWith(color: Colors.black, fontFamily: "SpartanRegular", fontSize: 14,),
                     ),
                     subtitle: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        Image.asset(
-                          "assets/icons/location_pin.png",
-                          width: 15.0,
-                          height: 15.0,
-                          color: Colors.black,
-                        ),
                         Text(
-                          "  34 kilometers",
-                          style: whiteSubHeadingTextStyle.copyWith(color: Colors.black, fontSize: 14),
+                         "Made by: Gutro",
+                          style: whiteSubHeadingTextStyle.copyWith(color: Colors.black, fontSize: 11.5, fontFamily: "SpartanRegular",),
                         ),
                       ],
                     ),
-                    leading: ClipOval(
-                      child: Image.asset(
-                        "assets/images/anne.jpeg",
-                        width: 50,
-                        height: 50,
-                      ),
-                    ),
                     trailing: SizedBox(
-                      width: 75,
+                      width: 105,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
                           Expanded(
                             child: Row(
                               children: <Widget>[
-                                Container(
-                                  width: 15,
-                                  height: 15,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.green,
-                                  ),
-                                ),
                                 Spacer(),
+                                
                                 Text(
-                                  "ONLINE",
-                                  style: whiteSubHeadingTextStyle.copyWith(color: Colors.green, fontSize: 14),
+                                  "1,506 views",
+                                  style: TextStyle(fontFamily: "SpartanRegular", fontSize: 11, color: Colors.grey[600]),
                                 ),
                               ],
                             ),
                           ),
                           Expanded(
-                            child: Icon(
-                              Icons.star,
-                              color: blueColor,
+                            child: Text(
+                              "1h ago",
+                              style: TextStyle(fontFamily: "SpartanRegular", fontSize: 11, color: Colors.grey[600]),
                             ),
                           ),
                         ],
@@ -155,9 +160,10 @@ class CommunityPage extends StatelessWidget {
                   ),
                 );
               },
-              itemCount: 10,
+              itemCount: 5,
             ),
           ),
+          SizedBox(height: 30)
         ],
       ),
     );
