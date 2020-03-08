@@ -5,22 +5,15 @@ import 'commons/collapsing_navigation_drawer_widget.dart';
 
 
 class CommunityPage extends StatefulWidget {
-  @override
+  @override 
   _CommunityPage createState() => _CommunityPage();
 }
 
 class _CommunityPage extends State<CommunityPage> {
 
-final List<String> lista = [
-"Gutro",
-"kyle",
-"Samuca",
-"Yve",
-"Johm"
-];
-
   final List<String> subjects = ["Date", "Views", "Name", "User", "Filter"];
   String selectedSubject = "Filter";
+
   Widget build(BuildContext context) {
     return Scaffold(
      appBar: AppBar(

@@ -1,3 +1,5 @@
+import 'package:apex_plus/pages/notifications.dart';
+
 import '../custom_navigation_drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -75,6 +77,11 @@ class CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
                       ? _animationController.forward()
                       : _animationController.reverse();
                 });
+                Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              commentFoundation()));
               },
               child: AnimatedIcon(
                 icon: AnimatedIcons.close_menu,
