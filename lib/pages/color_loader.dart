@@ -72,8 +72,8 @@ class _ColorLoader2State extends State<ColorLoader2> with TickerProviderStateMix
             child: CustomPaint(
               painter: Arc1Painter(widget.color1),
               child: Container(
-                width: 50.0,
-                height: 50.0,
+                width: 90.0,
+                height: 90.0,
               ),
             ),
           ), new RotationTransition(
@@ -81,8 +81,8 @@ class _ColorLoader2State extends State<ColorLoader2> with TickerProviderStateMix
             child: CustomPaint(
               painter: Arc2Painter(widget.color2),
               child: Container(
-                width: 50.0,
-                height: 50.0,
+                width: 90.0,
+                height: 90.0,
               ),
             ),
           ), new RotationTransition(
@@ -90,8 +90,8 @@ class _ColorLoader2State extends State<ColorLoader2> with TickerProviderStateMix
             child: CustomPaint(
               painter: Arc3Painter(widget.color3),
               child: Container(
-                width: 50.0,
-                height: 50.0,
+                width: 90.0,
+                height: 90.0,
               ),
             ),
           )
@@ -121,7 +121,7 @@ class Arc1Painter extends CustomPainter {
 
     Paint p1 = new Paint()
       ..color = color
-      ..strokeWidth = 2.0
+      ..strokeWidth = 4.0
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
@@ -150,7 +150,7 @@ class Arc2Painter extends CustomPainter {
 
     Paint p2 = new Paint()
       ..color = color
-      ..strokeWidth = 2.0
+      ..strokeWidth = 4.0
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 

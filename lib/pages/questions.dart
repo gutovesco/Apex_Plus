@@ -279,7 +279,7 @@ class Summary extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Text(
-                "Finished!",
+                "Congratulations! Now, let's find the best options for you starting to export!",
                 style: new TextStyle(fontSize: 35.0),
               ),
               SizedBox(height: 15),

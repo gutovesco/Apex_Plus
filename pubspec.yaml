@@ -19,6 +19,8 @@ dev_dependencies:
   font_awesome_flutter: ^8.0.1
   clay_containers:
   curved_navigation_bar: ^0.3.2
+  timer_builder: ^1.3.0
+  snaplist: ^0.1.8
   liquid_pull_to_refresh: ^1.1.1
 
 flutter:
