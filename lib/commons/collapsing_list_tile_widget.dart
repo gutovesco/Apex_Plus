@@ -49,7 +49,7 @@ class _CollapsingListTileState extends State<CollapsingListTile> {
           children: <Widget>[
             Icon(
               widget.icon,
-              color: widget.isSelected ? selectedColor : Colors.white30,
+              color: widget.isSelected ? selectedColor : Colors.black54,
               size: 38.0,
             ),
             SizedBox(width: sizedBoxAnimation.value),

@@ -1,3 +1,4 @@
+import 'package:apex_plus/pages/loading_page.dart';
 import 'package:apex_plus/ui/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clay_containers/clay_containers.dart';
@@ -278,7 +279,7 @@ class Summary extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Text(
-                "Finished!",
+                "Congratulations! Now, let's find the best options for you starting to export!",
                 style: new TextStyle(fontSize: 35.0),
               ),
               SizedBox(height: 15),
@@ -288,7 +289,7 @@ class Summary extends StatelessWidget {
                       context,
                       new MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              LoginPage()));
+                              LoadingPage()));
                 },
                child: Center(
                  child: ClayContainer(
