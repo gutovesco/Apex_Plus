@@ -1,3 +1,4 @@
+import 'package:apex_plus/new_post.dart';
 import 'package:apex_plus/styleguide/colors.dart';
 import 'package:apex_plus/styleguide/text_style.dart';
 import 'package:apex_plus/theme.dart';
@@ -88,7 +89,15 @@ class CommunityPage extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) {
-                return Card(
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                MainMenuPage()));
+                  },
+                  child: Card(
                   elevation: 2,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
@@ -153,6 +162,7 @@ class CommunityPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                ),
                 );
               },
               itemCount: 10,
