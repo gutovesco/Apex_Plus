@@ -1,6 +1,5 @@
 import 'package:apex_plus/main_menu_page.dart';
 import 'package:flutter/material.dart';
-import 'package:snaplist/snaplist.dart';
 
 class CountryOptions extends StatefulWidget {
   @override

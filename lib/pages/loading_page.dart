@@ -5,6 +5,7 @@ import 'package:apex_plus/pages/questions.dart';
 import 'package:flutter/material.dart';
 import 'package:clay_containers/clay_containers.dart';
 import 'package:timer_builder/timer_builder.dart';
+import 'package:shimmer/shimmer.dart';
 
 class LoadingPage extends StatefulWidget {
   @override
@@ -58,13 +59,21 @@ class _LoadingPageState extends State<LoadingPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: 15),
-                  Text(
-                    loadingPhrases[i],
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontFamily: "SpartanRegular",
+                  SizedBox(height: 15, width: 50.0,),
+                  Container(
+                    width: 400.0,
+                    height: 180.0,
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.green,
+                      highlightColor: Colors.yellow,
+                      child: Text(
+                        loadingPhrases[i],
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontFamily: "SpartanRegular",
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 20),

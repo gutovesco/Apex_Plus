@@ -20,7 +20,7 @@ dev_dependencies:
   clay_containers:
   curved_navigation_bar: ^0.3.2
   timer_builder: ^1.3.0
-  snaplist: ^0.1.8
+  shimmer: ^1.1.0
   liquid_pull_to_refresh: ^1.1.1
 
 flutter:
