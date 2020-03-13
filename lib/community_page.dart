@@ -12,7 +12,7 @@ class CommunityPage extends StatefulWidget {
 
 class _CommunityPage extends State<CommunityPage> {
 
-  final List<String> subjects = ["Date", "Views", "Name", "User", "Filter"];
+  final List<String> subjects = ["Date", "Legislation", "Forum", "Views", "Name", "User", "Filter"];
   String selectedSubject = "Filter";
 
   Widget build(BuildContext context) {
