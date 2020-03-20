@@ -1,9 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 
-Color palleteYellow = Color.fromRGBO(252,216,5, 100);
-Color palleteGreen = Color.fromRGBO(66,182,66, 100);
-
 class Colors {
 
   const Colors();

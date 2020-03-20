@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'side.dart';
-import 'sun_moon.dart';
-
 import 'gooey_edge.dart';
 import 'gooey_edge_clipper.dart';
 
@@ -16,11 +14,11 @@ class GooeyCarousel extends StatefulWidget {
 }
 
 class GooeyCarouselState extends State<GooeyCarousel> with SingleTickerProviderStateMixin {
-  int _index = 0; // index of the base (bottom) child
-  int _dragIndex; // index of the top child
-  Offset _dragOffset; // starting offset of the drag
-  double _dragDirection; // +1 when dragging left to right, -1 for right to left
-  bool _dragCompleted; // has the drag successfully resulted in a swipe
+  int _index = 0;
+  int _dragIndex;
+  Offset _dragOffset;
+  double _dragDirection;
+  bool _dragCompleted;
   
   GooeyEdge _edge;
   Ticker _ticker;
@@ -62,10 +60,7 @@ class GooeyCarouselState extends State<GooeyCarousel> with SingleTickerProviderS
           clipBehavior: Clip.hardEdge,
           clipper: GooeyEdgeClipper(_edge, margin: 10.0),
         ),
-        SunAndMoon(
-          index: _dragIndex,
-          isDragComplete: _dragCompleted,
-          )
+
       ],)
     );
   }

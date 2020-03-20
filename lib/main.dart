@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:apex_plus/ui/login_page.dart';
 import 'package:apex_plus/_shared/lib/env.dart';
 
+
 void main() {
   runApp(App());
 }
@@ -14,9 +15,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return new MaterialApp(
-      title: 'TheGorgeousLogin',
+      title: 'Apex Plus',
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xFF4dff4d)
       ),
       home: new LoginPage(),
       debugShowCheckedModeBanner: false,
