@@ -109,6 +109,7 @@ class Quiz1State extends State<Quiz1> {
         onWillPop: () async => false,
         child: Scaffold(
           body: new Container(
+            color: Colors.green,
             margin: const EdgeInsets.all(10.0),
             alignment: Alignment.topCenter,
             child: new Column(
@@ -275,13 +276,14 @@ class Summary extends StatelessWidget {
       onWillPop: () async => false,
       child: Scaffold(
         body: new Container(
+          color: Colors.green,
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
                 child: new Text(
-                "Congratulations! Now, let's find the best options so you can!",
+                "Congratulations! Now, let's find the best options so you can export easily!",
                 textAlign: TextAlign.center,
                 style: TextStyle(
              color: Colors.black,

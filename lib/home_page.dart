@@ -44,15 +44,7 @@ class _HomePageState extends State<HomePage> {
         drawer: CollapsingNavigationDrawer(),
         body: SingleChildScrollView(
           child: Column(children: <Widget>[
-            Row(
-              children: <Widget>[
-                Text(
-                  'Roadmap',
-                  style: TextStyle(fontSize: 28.0, color: Colors.green),
-                )
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
+            SizedBox(height:20.0),
             umContainer('1', 'Planejamento', 'oi'),
             umContainer('2', 'Processo de Habilitação', 'oi'),
             umContainer('3', 'Análise Financeira e Tributária', 'oi'),
