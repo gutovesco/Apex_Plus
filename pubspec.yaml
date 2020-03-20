@@ -21,6 +21,7 @@ dev_dependencies:
   curved_navigation_bar: ^0.3.2
   timer_builder: ^1.3.0
   shimmer: ^1.1.0
+  gradient_app_bar:
   liquid_pull_to_refresh: ^1.1.1
 
 flutter:
@@ -30,6 +31,7 @@ flutter:
   assets:
       - assets/login_logo.png
       - images/
+      - assets/img/argentina.png
 
   fonts:
     - family: TitleFont

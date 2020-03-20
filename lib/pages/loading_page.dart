@@ -26,7 +26,7 @@ class _LoadingPageState extends State<LoadingPage> {
     'Fetching market data...',
     'Analyzing your profile...',
     'Matching the best scenarios...',
-    'All done!'
+    'All done! Get ready to export!'
   ];
   int i = -1;
 
@@ -59,24 +59,14 @@ class _LoadingPageState extends State<LoadingPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: 15, width: 50.0,),
-                  Container(
-                    width: 400.0,
-                    height: 180.0,
-                    child: Shimmer.fromColors(
-                      baseColor: Colors.green,
-                      highlightColor: Colors.yellow,
-                      child: Text(
-                        loadingPhrases[i],
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: "SpartanRegular",
-                        ),
-                      ),
+                  Text(
+                    loadingPhrases[i],
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 24,
+                      fontFamily: "BellotaText",
                     ),
                   ),
-                  SizedBox(height: 20),
                 ],
               ),
             ],
