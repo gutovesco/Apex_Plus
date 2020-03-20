@@ -32,6 +32,7 @@ class _LoginPageState extends State<LoginPage>
   bool _obscureTextSignupConfirm = true;
 
   TextEditingController signupEmailController = new TextEditingController();
+  TextEditingController signupCnpjController = new TextEditingController();
   TextEditingController signupNameController = new TextEditingController();
   TextEditingController signupPasswordController = new TextEditingController();
   TextEditingController signupConfirmPasswordController =
@@ -517,7 +518,7 @@ class _LoginPageState extends State<LoginPage>
                             top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
                         child: TextField(
                           focusNode: myFocusNodePassword,
-                          controller: signupPasswordController,
+                          controller: signupCnpjController,
                           obscureText: _obscureTextSignup,
                           style: TextStyle(
                               fontFamily: "SpartanRegular",
