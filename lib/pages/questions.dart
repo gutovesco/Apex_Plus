@@ -278,9 +278,16 @@ class Summary extends StatelessWidget {
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              new Text(
-                "Congratulations! Now, let's find the best options for you starting to export!",
-                style: new TextStyle(fontSize: 35.0),
+              Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: new Text(
+                "Congratulations! Now, let's find the best options so you can!",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+             color: Colors.black,
+              fontSize: 16,
+               fontFamily: "SpartanRegular",),
+              ),
               ),
               SizedBox(height: 15),
               GestureDetector(
