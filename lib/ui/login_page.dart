@@ -1,5 +1,6 @@
 import 'package:apex_plus/demo.dart';
 import 'package:apex_plus/main_menu_page.dart';
+import 'package:apex_plus/pages/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -338,7 +339,7 @@ class _LoginPageState extends State<LoginPage>
                           context,
                           new MaterialPageRoute(
                               builder: (BuildContext context) =>
-                                  MainMenuPage()));
+                                  LoadingPage()));
                     } else {
                       showInSnackBar('Oops! Usuário e Senha inválidos!');
                     }
@@ -350,7 +351,10 @@ class _LoginPageState extends State<LoginPage>
           Padding(
             padding: EdgeInsets.only(top: 10.0),
             child: FlatButton(
-                onPressed: () {},
+                onPressed: () {
+                  showInSnackBar(
+                      'Tente o login de teste ;)\nUsuário: teste@gmail.com\nSenha: teste123');
+                },
                 child: Text(
                   "Esqueceu a senha?",
                   style: TextStyle(

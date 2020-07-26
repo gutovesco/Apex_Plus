@@ -18,15 +18,15 @@ class _LoadingPageState extends State<LoadingPage> {
     super.initState();
     Future.delayed(Duration(seconds: 8)).then((_) {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => CountryOptions()));
+          context, MaterialPageRoute(builder: (context) => MainMenuPage()));
     });
   }
 
   List<String> loadingPhrases = [
-    'Fetching market data...',
-    'Analyzing your profile...',
-    'Matching the best scenarios...',
-    'All done! Get ready to export!'
+    'Recuperando informações da conta...',
+    'Preparando seu Roadmap...',
+    'Atualizando mapa de oportunidades...',
+    'Pronto! Seja muito bem vindo(a)!'
   ];
   int i = -1;
 
@@ -59,12 +59,15 @@ class _LoadingPageState extends State<LoadingPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    loadingPhrases[i],
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 24,
-                      fontFamily: "BellotaText",
+                  Flexible(
+                    child: Text(
+                      loadingPhrases[i],
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontSize: 24,
+                        fontFamily: "BellotaText",
+                      ),
                     ),
                   ),
                 ],
