@@ -8,7 +8,7 @@ void main() {
     Showcase(
       theme: TemplateThemeData(
           brightness: Brightness.dark,
-          backgroundColor: Colors.deepOrangeAccent,
+          backgroundColor: Colors.orangeAccent,
           titleTextStyle: TextStyle(
               fontFamily: 'WorkSans',
               fontWeight: FontWeight.bold,

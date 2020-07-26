@@ -23,10 +23,10 @@ class _LoadingPageState extends State<LoadingPage> {
   }
 
   List<String> loadingPhrases = [
-    'Recuperando informações da conta...',
-    'Preparando seu Roadmap...',
+    'Recuperando informações...',
+    'Preparando o Roadmap...',
     'Atualizando mapa de oportunidades...',
-    'Pronto! Seja muito bem vindo(a)!'
+    'Tudo Pronto!\nSeja muito bem vindo(a)!'
   ];
   int i = -1;
 
@@ -42,6 +42,16 @@ class _LoadingPageState extends State<LoadingPage> {
       }
       return Scaffold(
         body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomRight,
+              end: Alignment.topLeft,
+              colors: [
+                Colors.blue,
+                Colors.blueAccent,
+              ],
+            ),
+          ),
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -51,7 +61,7 @@ class _LoadingPageState extends State<LoadingPage> {
                   ColorLoader2(
                     color1: Colors.green,
                     color2: Colors.yellow,
-                    color3: Colors.blue,
+                    color3: Colors.white,
                   ),
                 ],
               ),
@@ -64,7 +74,7 @@ class _LoadingPageState extends State<LoadingPage> {
                       loadingPhrases[i],
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: Colors.white,
                         fontSize: 24,
                         fontFamily: "BellotaText",
                       ),
