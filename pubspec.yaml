@@ -23,6 +23,9 @@ dev_dependencies:
   shimmer: ^1.1.0
   gradient_app_bar:
   liquid_pull_to_refresh: ^1.1.1
+  flutter_showcase: ^0.1.0
+  country_list_pick: ^1.0.0+4
+  
 
 flutter:
 
