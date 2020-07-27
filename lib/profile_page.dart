@@ -1,6 +1,9 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:math' as math;
+import 'package:expansion_card/expansion_card.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class ProfilePageDesign extends StatefulWidget {
   @override
@@ -8,7 +11,6 @@ class ProfilePageDesign extends StatefulWidget {
 }
 
 class _ProfilePageDesignState extends State<ProfilePageDesign> {
-
   @override
   void initState() {
     super.initState();
@@ -27,258 +29,180 @@ class _ProfilePageDesignState extends State<ProfilePageDesign> {
 }
 
 class ProfilePage extends StatelessWidget {
-
-  TextStyle _style(){
-    return TextStyle(
-      fontWeight: FontWeight.bold
-    );
-  }
-
+  var cardHeight = 160.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text("Name", style: TextStyle(fontFamily: "SpartanRegular",)),
-            SizedBox(height: 4,),
-            Text("Apex Plus",style: TextStyle(fontFamily: "SpartanRegular",)),
-            SizedBox(height: 16,),
-
-            Text("CNPJ", style: TextStyle(fontFamily: "SpartanRegular",)),
-            SizedBox(height: 4,),
-            Text("451.428.744-58", style: TextStyle(fontFamily: "SpartanRegular",)),
-            SizedBox(height: 16,),
-
-            Text("Location",style: TextStyle(fontFamily: "SpartanRegular",)),
-            SizedBox(height: 4,),
-            Text("São Paulo, Brazil", style: TextStyle(fontFamily: "SpartanRegular",)),
-            SizedBox(height: 16,),
-
+      appBar: GradientAppBar(
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            Text('Oportunidades'),
           ],
         ),
-      ),
-    );
-  }
-}
-
-
-final String url = "https://upload.wikimedia.org/wikipedia/commons/0/05/Di_logo_apex.jpg";
-
-class CustomAppBar extends StatelessWidget
-  with PreferredSizeWidget{
-
-  @override
-  Size get preferredSize => Size(double.infinity, 320);
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: MyClipper(),
-      child: Container(
-        padding: EdgeInsets.only(top: 4),
-        decoration: BoxDecoration(
-          gradient: new LinearGradient(
-                  colors: [
-                    Color(0xff00FF00),
-                    Color(0xffFFFF32),
-                    
-                    
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  stops: [0.0, 1],),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black,
-              blurRadius: 20,
-              offset: Offset(0, 1)
-            )
-          ]
-        ),
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-
-                Text("Profile", style: TextStyle(
-                  fontFamily: "SpartanRegular",
-                  color: Colors.white,
-                  fontSize: 16,
-                ),),
-              ],
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-
-                Column(
-                  children: <Widget>[
-                    Container(
-                      width: 120,
-                      height: 120,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              fit: BoxFit.fill,
-                              image: NetworkImage(url)
-                          )
-                      ),
-                    ),
-                    SizedBox(height: 16,),
-                    Text("Apex Plus", style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                      color: Colors.white,
-                      fontSize: 20
-                    ),)
-                  ],
-                ),
-
-                Column(
-                  children: <Widget>[
-                    Text("Roadmap\n Finished", style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                      color: Colors.white
-                    ),),
-                    Text("3", style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                        fontSize: 20,
-                        color: Colors.white
-                    ),)
-                  ],
-                ),
-
-                Column(
-                  children: <Widget>[
-                    Text("Exportations", style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                        color: Colors.white
-                    ),),
-                    Text("12", style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                        fontSize: 20,
-                        color: Colors.white
-                    ),)
-                  ],
-                ),
-
-
-                Column(
-                  children: <Widget>[
-                    Text("Contacts", style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                        color: Colors.white
-                    ),),
-                    Text("24", style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                        fontSize: 20,
-                        color: Colors.white
-                    ),)
-                  ],
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-
-                Column(
-                  children: <Widget>[
-                    Text("Savings", style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                      color: Colors.white
-                    ),),
-                    Text("20K", style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                      color: Colors.white,
-                      fontSize: 20
-                    ),)
-                  ],
-                ),
-
-                SizedBox(width: 22,),
-
-                Column(
-                  children: <Widget>[
-                    Text("July Goals",
-                    style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                      color: Colors.white
-                    ),),
-                    Text("50K", style: TextStyle(
-                      fontFamily: "SpartanRegular",
-                        color: Colors.white,
-                        fontSize: 20
-                    ))
-                  ],
-                ),
-
-                SizedBox(width: 16,)
-
-              ],
-            ),
-            SizedBox(height: 8,),
-
-            Align(
-              alignment: Alignment.bottomRight,
-              child: GestureDetector(
-                onTap: (){
-                  print("//TODO: button clicked");
-                },
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 24, 16, 10),
-                  child: Transform.rotate(
-                    angle: (math.pi * 0.05),
-                    child: Container(
-                      width: 110,
-                      height: 32,
-                      child: Center(child: Text("Edit Profile", style: TextStyle(fontFamily: "SpartanRegular",)),),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(16)),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 20
-                          )
-                        ]
-                      ),
-                    ),
+//        centerTitle: true,
+        gradient: LinearGradient(
+            colors: [Colors.lightGreenAccent, Color(0xFF4dff4d)]),
+        actions: <Widget>[
+          PopupMenuButton<String>(
+            onSelected: choiceAction,
+            itemBuilder: (BuildContext context) {
+              return Constants.choices.map((String choice) {
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: Text(
+                    choice,
+                    textAlign: TextAlign.center,
                   ),
-                ),
-              ),
-            )
-          ],
-        ),
+                );
+              }).toList();
+            },
+          ),
+        ],
+      ),
+      body: ListView.builder(
+        itemCount: 4,
+        itemBuilder: (context, index) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20),
+              Center(
+                  child: Container(
+                width: 360,
+                child: Neumorphic(
+                    style: NeumorphicStyle(
+                        shape: NeumorphicShape.concave,
+                        depth: 8,
+                        lightSource: LightSource.topLeft,
+                        color: Colors.white),
+                    child: ExpansionCard(
+                      initiallyExpanded: true,
+                      borderRadius: 30,
+                      leading: NeumorphicIcon(
+                        Icons.airplanemode_active,
+                        size: 30.0,
+                        style: NeumorphicStyle(color: Color(0xff41ea5d)),
+                      ),
+                      backgroundColor: Colors.lightGreenAccent[300],
+                      title: Container(
+                        margin: EdgeInsets.only(bottom: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              "Oportunidade - Brasil",
+                              style: TextStyle(
+                                fontFamily: 'BalooBhai',
+                                fontSize: 25,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      children: <Widget>[
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(left: 8, right: 8),
+                              child: Text(
+                                  "A oportunidade é a gente criar vergonha na cara e parar de ficar usando biblioteca pra fazer tudo igual uns palerma demente IZIIIIII PESADAUM",
+                                  style: TextStyle(
+                                      fontFamily: 'BalooBhai',
+                                      fontSize: 17,
+                                      color: Colors.black)),
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Padding(
+                                  padding:
+                                      EdgeInsets.only(right: 30, bottom: 20),
+                                  child: Container(
+                                    width: 100.0,
+                                    height: 35.0,
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(30.0)),
+                                      padding: EdgeInsets.all(0.0),
+                                      child: Ink(
+                                        decoration: BoxDecoration(
+                                            gradient: LinearGradient(
+                                              colors: [
+                                                Color(0xff41ea5d),
+                                                Color(0xffb5f2bf)
+                                              ],
+                                              begin: Alignment.centerLeft,
+                                              end: Alignment.centerRight,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(30.0)),
+                                        child: Container(
+                                          constraints: BoxConstraints(
+                                              maxWidth: 300.0, minHeight: 50.0),
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            "Detalhes",
+                                            textAlign: TextAlign.center,
+                                            style:
+                                                TextStyle(color: Colors.white),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    )),
+              ))
+            ],
+          );
+        },
       ),
     );
   }
 }
 
-class MyClipper extends CustomClipper<Path>{
-
-  @override
-  Path getClip(Size size) {
-    Path p = Path();
-
-    p.lineTo(0, size.height-70);
-    p.lineTo(size.width, size.height);
-
-    p.lineTo(size.width, 0);
-
-    p.close();
-
-    return p;
+void choiceAction(String choice) {
+  if (choice == Constants.About) {
+    showDialog(
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: new Text("Equipe 9"),
+            content: InkWell(
+              child: new Text(
+                  "Samuel Santos\nAugusto Vesco\nCaio Pedroso\nYves Alvim\nJoão Marcos\nGitRepo: https://github.com/gutovesco/Apex_Plus"),
+            ),
+            //new Text(),
+            actions: <Widget>[
+              // usually buttons at the bottom of the dialog
+              new FlatButton(
+                child: new Text("OK"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+        context: null);
+  } else if (choice == Constants.Exit) {
+    exit(0);
   }
+}
 
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return true;
-  }
+class Constants {
+  static const String About = 'Sobre';
+  static const String Exit = 'Sair';
+
+  static const List<String> choices = <String>[About, Exit];
 }

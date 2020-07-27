@@ -1,9 +1,9 @@
+import 'package:apex_plus/success_tiles.dart';
 import 'package:flutter/material.dart';
 import 'community_page.dart';
 import 'profile_page.dart';
 import 'home_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-
 
 class MainMenuPage extends StatefulWidget {
   @override
@@ -14,9 +14,9 @@ class _MainMenuPageState extends State<MainMenuPage> {
   int _page = 1;
   final ProfilePage _profile = new ProfilePage();
   final CommunityPage _community = new CommunityPage();
-  final HomePage _home = new HomePage();
+  final ShowcaseSuccessTimeline _home = new ShowcaseSuccessTimeline();
 
-  Widget _showPage = new HomePage();
+  Widget _showPage = new ShowcaseSuccessTimeline();
 
   Widget _pageChooser(int page) {
     switch (page) {
@@ -60,7 +60,10 @@ class _MainMenuPageState extends State<MainMenuPage> {
               ),
               Text(
                 "Profile",
-                style: TextStyle(color: Colors.white, fontSize: 10, ),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                ),
               ),
             ],
           ),
@@ -73,7 +76,10 @@ class _MainMenuPageState extends State<MainMenuPage> {
               ),
               Text(
                 "Home",
-                style: TextStyle(color: Colors.white, fontSize: 10, ),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                ),
               ),
             ],
           ),
@@ -86,7 +92,10 @@ class _MainMenuPageState extends State<MainMenuPage> {
               ),
               Text(
                 "Community",
-                style: TextStyle(color: Colors.white, fontSize: 10, ),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                ),
               ),
             ],
           ),
