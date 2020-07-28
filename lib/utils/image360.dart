@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:expansion_card/expansion_card.dart';
 
 // Enum for rotation direction
 enum RotationDirection { clockwise, anticlockwise }
@@ -83,29 +85,106 @@ class _ImageView360State extends State<ImageView360> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Flexible(
-              child: Text('🌍 Clique, segure e arraste🌍'),
+              child: Text('🌍 Clique, segure e arraste 🌍'),
             ),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GestureDetector(
-              child: SizedBox(
-                width: 50,
-                height: 40,
-                child: Image(
-                  image: widget.countryList[rotationIndex],
-                  fit: BoxFit.contain,
+        SizedBox(height: 50),
+        Container(
+          width: 360,
+          child: Neumorphic(
+              style: NeumorphicStyle(
+                  shape: NeumorphicShape.concave,
+                  depth: 8,
+                  lightSource: LightSource.topLeft,
+                  color: Colors.white),
+              child: ExpansionCard(
+                initiallyExpanded: false,
+                borderRadius: 30,
+                leading: SizedBox(
+                  width: 50,
+                  height: 40,
+                  child: Image(
+                    image: widget.countryList[rotationIndex],
+                    fit: BoxFit.contain,
+                  ),
                 ),
-              ),
-            ),
-            Text(widget.textList[rotationIndex]),
-            SizedBox(
-              height: 20,
-            ),
-          ],
-        )
+                backgroundColor: Colors.lightGreenAccent[300],
+                title: Container(
+                  margin: EdgeInsets.only(bottom: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        widget.textList[rotationIndex],
+                        style: TextStyle(
+                          fontFamily: 'BalooBhai',
+                          fontSize: 25,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 8, right: 8),
+                        child: Text(widget.textList[rotationIndex],
+                            style: TextStyle(
+                                fontFamily: 'BalooBhai',
+                                fontSize: 17,
+                                color: Colors.black)),
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: 30, bottom: 20),
+                            child: Container(
+                              width: 100.0,
+                              height: 35.0,
+                              child: RaisedButton(
+                                onPressed: () {},
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30.0)),
+                                padding: EdgeInsets.all(0.0),
+                                child: Ink(
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0xff41ea5d),
+                                          Color(0xffb5f2bf)
+                                        ],
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.centerRight,
+                                      ),
+                                      borderRadius:
+                                          BorderRadius.circular(30.0)),
+                                  child: Container(
+                                    constraints: BoxConstraints(
+                                        maxWidth: 300.0, minHeight: 50.0),
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      "Detalhes",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              )),
+        ),
       ],
     );
   }

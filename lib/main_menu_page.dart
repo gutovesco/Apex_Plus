@@ -1,8 +1,10 @@
+import 'package:apex_plus/success_tiles.dart';
 import 'package:flutter/material.dart';
 import 'mapa.dart';
-import 'profile_page.dart';
+import 'oportunidades.dart';
 import 'home_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class MainMenuPage extends StatefulWidget {
   @override
@@ -11,11 +13,12 @@ class MainMenuPage extends StatefulWidget {
 
 class _MainMenuPageState extends State<MainMenuPage> {
   int _page = 1;
-  final ProfilePage _oportunidades = new ProfilePage();
+  final Oportunidades _oportunidades = new Oportunidades();
   final Mapa _mapa = new Mapa();
-  final HomePage _roadmap = new HomePage();
+  final Widget _roadmap = new SuccessTimeline();
 
-  Widget _showPage = new HomePage();
+  // Necessary this redundance of Home Screen
+  Widget _showPage = new SuccessTimeline();
 
   Widget _pageChooser(int page) {
     switch (page) {
@@ -40,11 +43,8 @@ class _MainMenuPageState extends State<MainMenuPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: Container(
-        child: _showPage,
-      ),
+      body: _showPage,
       bottomNavigationBar: CurvedNavigationBar(
-        height: 60.0,
         index: _page,
         color: Color(0xFF4dff4d),
         backgroundColor: Colors.white,

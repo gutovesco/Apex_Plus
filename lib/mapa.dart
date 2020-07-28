@@ -4,6 +4,7 @@ import 'package:apex_plus/styleguide/text_style.dart';
 import 'package:apex_plus/utils/image360.dart';
 import 'package:flutter/material.dart';
 import 'commons/collapsing_navigation_drawer_widget.dart';
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class Mapa extends StatefulWidget {
   @override
@@ -58,14 +59,16 @@ class _Mapa extends State<Mapa> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Color(0xFF4dff4d),
-        title: Text(
-          "Mapa de oportunidades",
-          style: TextStyle(
-              fontFamily: "SpartanRegular", color: Colors.white, fontSize: 16),
+      appBar: GradientAppBar(
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            Text('Mapa e FitCultural'),
+          ],
         ),
+//        centerTitle: true,
+        gradient: LinearGradient(
+            colors: [Colors.lightGreenAccent, Color(0xFF4dff4d)]),
       ),
       drawer: CollapsingNavigationDrawer(),
       body: Column(
