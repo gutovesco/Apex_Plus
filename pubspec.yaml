@@ -29,6 +29,7 @@ dev_dependencies:
   google_fonts: 
   flutter_highlight: 
   flutter_showcase:
+  youtube_player_flutter: ^6.1.1
 
 flutter:
 
