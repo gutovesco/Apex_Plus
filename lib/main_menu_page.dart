@@ -1,9 +1,10 @@
+import 'package:apex_plus/success_tiles.dart';
 import 'package:flutter/material.dart';
-import 'community_page.dart';
-import 'profile_page.dart';
+import 'mapa.dart';
+import 'oportunidades.dart';
 import 'home_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-
+import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class MainMenuPage extends StatefulWidget {
   @override
@@ -12,22 +13,23 @@ class MainMenuPage extends StatefulWidget {
 
 class _MainMenuPageState extends State<MainMenuPage> {
   int _page = 1;
-  final ProfilePage _profile = new ProfilePage();
-  final CommunityPage _community = new CommunityPage();
-  final HomePage _home = new HomePage();
+  final Oportunidades _oportunidades = new Oportunidades();
+  final Mapa _mapa = new Mapa();
+  final Widget _roadmap = new SuccessTimeline();
 
-  Widget _showPage = new HomePage();
+  // Necessary this redundance of Home Screen
+  Widget _showPage = new SuccessTimeline();
 
   Widget _pageChooser(int page) {
     switch (page) {
       case 0:
-        return _profile;
+        return _oportunidades;
         break;
       case 1:
-        return _home;
+        return _roadmap;
         break;
       case 2:
-        return _community;
+        return _mapa;
         break;
       default:
         return new Container(
@@ -41,11 +43,8 @@ class _MainMenuPageState extends State<MainMenuPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: Container(
-        child: _showPage,
-      ),
+      body: _showPage,
       bottomNavigationBar: CurvedNavigationBar(
-        height: 60.0,
         index: _page,
         color: Color(0xFF4dff4d),
         backgroundColor: Colors.white,
@@ -55,12 +54,15 @@ class _MainMenuPageState extends State<MainMenuPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Icon(
-                Icons.person,
+                Icons.next_week,
                 color: Colors.white,
               ),
               Text(
-                "Profile",
-                style: TextStyle(color: Colors.white, fontSize: 10, ),
+                "Oportunidades",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                ),
               ),
             ],
           ),
@@ -72,8 +74,11 @@ class _MainMenuPageState extends State<MainMenuPage> {
                 color: Colors.white,
               ),
               Text(
-                "Home",
-                style: TextStyle(color: Colors.white, fontSize: 10, ),
+                "Roadmap",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                ),
               ),
             ],
           ),
@@ -81,12 +86,15 @@ class _MainMenuPageState extends State<MainMenuPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Icon(
-                Icons.people,
+                Icons.map,
                 color: Colors.white,
               ),
               Text(
-                "Community",
-                style: TextStyle(color: Colors.white, fontSize: 10, ),
+                "Mapa",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                ),
               ),
             ],
           ),

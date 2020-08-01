@@ -333,13 +333,12 @@ class _LoginPageState extends State<LoginPage>
                     ),
                   ),
                   onPressed: () {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (BuildContext context) => LoadingPage()));
                     if (loginEmailController.text == 'teste@gmail.com' &&
                         loginPasswordController.text == 'teste123') {
-                      Navigator.push(
-                          context,
-                          new MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  LoadingPage()));
                     } else {
                       showInSnackBar('Oops! Usuário e Senha inválidos!');
                     }

@@ -8,7 +8,7 @@ void main() {
     Showcase(
       theme: TemplateThemeData(
           brightness: Brightness.dark,
-          backgroundColor: Colors.deepOrangeAccent,
+          backgroundColor: Colors.orangeAccent,
           titleTextStyle: TextStyle(
               fontFamily: 'WorkSans',
               fontWeight: FontWeight.bold,
@@ -42,9 +42,8 @@ void main() {
         LinkData(
             title: 'Demo',
             icon: Image.asset('images/youtube.png', fit: BoxFit.fitHeight),
-            url: 'https://www.youtube.com/watch?v=n6aQlLRiCPc'),
-        LinkData.github(
-            'https://github.com/KyleKun/Hackathon-CCR-2020-Prototype'),
+            url: 'https://www.youtube.com/'),
+        LinkData.github('https://github.com/gutovesco/Apex_Plus'),
       ],
       logoLink: LinkData(
           icon: Image.asset('assets/img/login_logo.png'), title: 'Apex Plus'),
