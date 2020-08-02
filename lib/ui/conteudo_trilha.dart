@@ -1,5 +1,6 @@
+import 'package:apex_plus/ui/play_pause_overlay.dart';
 import 'package:flutter/material.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:video_player/video_player.dart';
 
 class ConteudoTrilha extends StatefulWidget {
   @override
@@ -8,53 +9,79 @@ class ConteudoTrilha extends StatefulWidget {
 
 class _ConteudoTrilhaState extends State<ConteudoTrilha> {
 
-  YoutubePlayerController _controller;
-
   List<Map<String, dynamic>> listaComentarios = [
     {"usuario" : "Lengueen", "selecionado" : false, "comentario": "Eu sou uma foca"},
     {"usuario" : "Julinho", "selecionado" : true, "comentario" : "To com depressão"}
   ];
 
-  final List<String> videosId = [
-    YoutubePlayer.convertUrlToId("https://www.youtube.com/watch?v=1_FXVjf46T8"),
-  ];
 
   bool visibleYoutube = true;
-
-  PlayerState estadoPlay;
-  YoutubeMetaData dadosVideo;
-  bool _videoIniciado = false;
 
   List<String> _data = ["Comentários"];
   bool isExpanded =false;
 
-  void listener() {
-    if (_videoIniciado && mounted && !_controller.value.isFullScreen) {
-      setState(() {
-        estadoPlay = _controller.value.playerState;
-        dadosVideo = _controller.metadata;
-      });
-    }
-  }
+  /*YoutubePlayerController _controller;
 
   @override
   void initState() {
-
-    _controller = YoutubePlayerController(
-      initialVideoId: videosId.first,
-      flags: YoutubePlayerFlags(
-        mute: false,
-        autoPlay: false,
-        disableDragSeek: false,
-        loop: false,
-        isLive: false,
-        forceHD: false,
-        enableCaption: true,
-      ),
-    )..addListener(listener);
-
+    String url = YoutubePlayerController.convertUrlToId("https://www.youtube.com/watch?v=etOxVzWo5NQ&t=82s");
     super.initState();
+    _controller = YoutubePlayerController(
+      initialVideoId: url,
+      params: const YoutubePlayerParams(
+        startAt: const Duration(minutes: 1, seconds: 36),
+        showControls: true,
+        showFullscreenButton: true,
+        desktopMode: false,
+      ),
+    )..listen((value) {
+      if (value.isReady && !value.hasPlayed) {
+        _controller
+          ..hidePauseOverlay()
+          ..hideTopMenu();
+      }
+    });
+    _controller.onEnterFullscreen = () {
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.landscapeLeft,
+        DeviceOrientation.landscapeRight,
+      ]);
+      //log('Entered Fullscreen');
+    };
+    _controller.onExitFullscreen = () {
+      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+      Future.delayed(const Duration(seconds: 1), () {
+        _controller.play();
+      });
+      Future.delayed(const Duration(seconds: 5), () {
+        SystemChrome.setPreferredOrientations(DeviceOrientation.values);
+      });
+      //log('Exited Fullscreen');
+    };
+  }*/
+
+  VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.asset(
+      'assets/video.mp4',
+    );
+
+    _controller.addListener(() {
+      setState(() {});
+    });
+    _controller.setLooping(true);
+    _controller.initialize();
   }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -69,12 +96,17 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
             child: Column(
               children: [
                 Container(
-                  color: Colors.red,
-                  child:  YoutubePlayer(
-                    controller: _controller,
-                    showVideoProgressIndicator: true,
-                    progressIndicatorColor: Colors.blueAccent,
-                    topActions: <Widget>[],),
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  child:  Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: <Widget>[
+                      VideoPlayer(_controller),
+                      ClosedCaption(text: _controller.value.caption.text),
+                      PlayPauseOverlay(controller: _controller),
+                      VideoProgressIndicator(_controller, allowScrubbing: true),
+                    ],
+                  ),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.min,

@@ -29,13 +29,15 @@ dev_dependencies:
   google_fonts: 
   flutter_highlight: 
   flutter_showcase:
-  youtube_player_flutter: ^6.1.1
+  chewie:
+  video_player:
 
 flutter:
 
   uses-material-design: true
 
   assets:
+      - assets/video.mp4
       - assets/login_logo.png
       - images/
       - assets/img/argentina.png
