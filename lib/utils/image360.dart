@@ -11,6 +11,7 @@ class ImageView360 extends StatefulWidget {
   final List<AssetImage> imageList;
   final List<AssetImage> countryList;
   final List<String> textList;
+  final List<String> descList;
   final bool autoRotate, allowSwipeToRotate;
   final int rotationCount, swipeSensitivity;
   final Duration frameChangeDuration;
@@ -21,6 +22,7 @@ class ImageView360 extends StatefulWidget {
     @required this.imageList,
     @required this.countryList,
     @required this.textList,
+    @required this.descList,
     this.autoRotate = false,
     this.allowSwipeToRotate = true,
     this.rotationCount = 1,
@@ -90,8 +92,27 @@ class _ImageView360State extends State<ImageView360> {
           ],
         ),
         SizedBox(height: 50),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Flexible(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'Baseado no seu produto e perfil,\nselecionamos os melhores países para você exportar',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'SpartanRegular',
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 20),
         Container(
-          width: 360,
+          width: 300,
           child: Neumorphic(
               style: NeumorphicStyle(
                   shape: NeumorphicShape.concave,
@@ -99,7 +120,7 @@ class _ImageView360State extends State<ImageView360> {
                   lightSource: LightSource.topLeft,
                   color: Colors.white),
               child: ExpansionCard(
-                initiallyExpanded: false,
+                initiallyExpanded: true,
                 borderRadius: 30,
                 leading: SizedBox(
                   width: 50,
@@ -132,11 +153,14 @@ class _ImageView360State extends State<ImageView360> {
                     children: [
                       Container(
                         margin: EdgeInsets.only(left: 8, right: 8),
-                        child: Text(widget.textList[rotationIndex],
+                        child: Text(widget.descList[rotationIndex],
                             style: TextStyle(
                                 fontFamily: 'BalooBhai',
                                 fontSize: 17,
                                 color: Colors.black)),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -169,7 +193,7 @@ class _ImageView360State extends State<ImageView360> {
                                         maxWidth: 300.0, minHeight: 50.0),
                                     alignment: Alignment.center,
                                     child: Text(
-                                      "Detalhes",
+                                      "Entenda",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(color: Colors.white),
                                     ),

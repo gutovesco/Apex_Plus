@@ -1,4 +1,4 @@
-import 'package:apex_plus/custom_navigation_drawer.dart';
+import 'package:apex_plus/widgets/custom_navigation_drawer.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -21,18 +21,21 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
-        title: Text("Collapsing Navigation Drawer/Sidebar",),
-      ),
-      //drawer: CollapsingNavigationDrawer(),
-      body: Stack(
-        children: <Widget>[
-          Container(color: selectedColor,),
-          CollapsingNavigationDrawer()
-        ],
-      )
-    );
+        appBar: AppBar(
+          elevation: 0.0,
+          backgroundColor: Colors.white,
+          title: Text(
+            "Collapsing Navigation Drawer/Sidebar",
+          ),
+        ),
+        //drawer: CollapsingNavigationDrawer(),
+        body: Stack(
+          children: <Widget>[
+            Container(
+              color: selectedColor,
+            ),
+            CollapsingNavigationDrawer()
+          ],
+        ));
   }
 }

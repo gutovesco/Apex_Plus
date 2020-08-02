@@ -1,11 +1,7 @@
-import 'package:apex_plus/country_options.dart';
-import 'package:apex_plus/main_menu_page.dart';
+import 'package:apex_plus/pages/main_menu_page.dart';
 import 'package:apex_plus/pages/color_loader.dart';
-import 'package:apex_plus/pages/questions.dart';
 import 'package:flutter/material.dart';
-import 'package:clay_containers/clay_containers.dart';
 import 'package:timer_builder/timer_builder.dart';
-import 'package:shimmer/shimmer.dart';
 
 class LoadingPage extends StatefulWidget {
   @override
@@ -26,7 +22,7 @@ class _LoadingPageState extends State<LoadingPage> {
     'Recuperando informações...',
     'Preparando o Roadmap...',
     'Atualizando mapa de oportunidades...',
-    'Tudo Pronto!\nSeja muito bem vindo(a)!'
+    'Tudo Pronto!\nSeja muito Bem Vindo(a)!'
   ];
   int i = -1;
 
@@ -59,7 +55,7 @@ class _LoadingPageState extends State<LoadingPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   ColorLoader2(
-                    color1: Colors.green,
+                    color1: Colors.lightGreenAccent,
                     color2: Colors.yellow,
                     color3: Colors.white,
                   ),

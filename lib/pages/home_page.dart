@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'content_page.dart';
-import 'commons/collapsing_navigation_drawer_widget.dart';
+import '../commons/collapsing_navigation_drawer_widget.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'dart:io';
 
@@ -22,8 +22,8 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
 //        centerTitle: true,
-          gradient:
-              LinearGradient(colors: [Colors.lightGreenAccent, Color(0xFF4dff4d)]),
+          gradient: LinearGradient(
+              colors: [Colors.lightGreenAccent, Color(0xFF4dff4d)]),
           actions: <Widget>[
             PopupMenuButton<String>(
               onSelected: choiceAction,
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
         drawer: CollapsingNavigationDrawer(),
         body: SingleChildScrollView(
           child: Column(children: <Widget>[
-            SizedBox(height:20.0),
+            SizedBox(height: 20.0),
             umContainer('1', 'Planejamento', 'oi'),
             umContainer('2', 'Processo de Habilitação', 'oi'),
             umContainer('3', 'Análise Financeira e Tributária', 'oi'),

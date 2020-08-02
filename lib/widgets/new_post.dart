@@ -1,8 +1,8 @@
-import 'package:apex_plus/post.dart';
+import 'package:apex_plus/widgets/post.dart';
 import 'package:flutter/material.dart';
-import 'mapa.dart';
+import '../pages/mapa.dart';
 //import 'profile_page.dart';
-import 'home_page.dart';
+import '../pages/home_page.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class MainMenuPage extends StatefulWidget {

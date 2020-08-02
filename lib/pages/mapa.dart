@@ -1,9 +1,9 @@
-import 'package:apex_plus/new_post.dart';
+import 'package:apex_plus/widgets/new_post.dart';
 import 'package:apex_plus/styleguide/colors.dart';
 import 'package:apex_plus/styleguide/text_style.dart';
 import 'package:apex_plus/utils/image360.dart';
 import 'package:flutter/material.dart';
-import 'commons/collapsing_navigation_drawer_widget.dart';
+import '../commons/collapsing_navigation_drawer_widget.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 
 class Mapa extends StatefulWidget {
@@ -24,15 +24,26 @@ class _Mapa extends State<Mapa> {
   bool imagePrecached = false;
   bool countryPrecached = false;
   List<String> mylist = [
-    'Brasil',
+    'EUA',
     'Japão',
     'China',
-    'USA',
-    'México',
-    'Test1',
-    'Test2',
-    'Test3',
-    'Test4'
+    'EUA',
+    'Japão',
+    'China',
+    'EUA',
+    'Japão',
+    'China',
+  ];
+  List<String> descList = [
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
   ];
 
   @override
@@ -77,6 +88,7 @@ class _Mapa extends State<Mapa> {
               ? ImageView360(
                   key: UniqueKey(),
                   textList: mylist,
+                  descList: descList,
                   imageList: imageList,
                   countryList: countryList,
                   autoRotate: autoRotate,

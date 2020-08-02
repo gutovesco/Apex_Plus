@@ -30,38 +30,38 @@ class _OportunidadesPageState extends State<OportunidadesPage> {
 
 class Oportunidades extends StatelessWidget {
   final double cardHeight = 160.0;
+  final List<String> titulo = [
+    '[Oportunidade] Açúcar e Álcool - Japão',
+    '[Evento] Reunião da comissão blablabla',
+    '[Oportunidade] Café - Estados Unidos',
+    '[Evento] Convenção dos exportadores',
+    '[Oportunidade] Papel e Celulose - China',
+    '[Evento] Show da Lady Gaga',
+  ];
+  final List<String> desc = [
+    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
+    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
+    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
+    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
+    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
+    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
+  ];
+  final List<String> tituloEvento = [];
+  final List<String> descEvento = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: GradientAppBar(
         automaticallyImplyLeading: false,
         title: Row(
-          children: [
-            Text('Oportunidades'),
-          ],
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [Text('Oportunidades'), Icon(Icons.filter_list)],
         ),
-//        centerTitle: true,
         gradient: LinearGradient(
             colors: [Colors.lightGreenAccent, Color(0xFF4dff4d)]),
-        actions: <Widget>[
-          PopupMenuButton<String>(
-            onSelected: choiceAction,
-            itemBuilder: (BuildContext context) {
-              return Constants.choices.map((String choice) {
-                return PopupMenuItem<String>(
-                  value: choice,
-                  child: Text(
-                    choice,
-                    textAlign: TextAlign.center,
-                  ),
-                );
-              }).toList();
-            },
-          ),
-        ],
       ),
       body: ListView.builder(
-        itemCount: 4,
+        itemCount: 6,
         itemBuilder: (context, index) {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +69,7 @@ class Oportunidades extends StatelessWidget {
               SizedBox(height: 20),
               Center(
                   child: Container(
-                width: 360,
+                width: 280,
                 child: Neumorphic(
                     style: NeumorphicStyle(
                         shape: NeumorphicShape.concave,
@@ -80,9 +80,13 @@ class Oportunidades extends StatelessWidget {
                       initiallyExpanded: false,
                       borderRadius: 30,
                       leading: Icon(
-                        Icons.airplanemode_active,
+                        titulo[index].startsWith('[O')
+                            ? Icons.airplanemode_active
+                            : Icons.calendar_today,
                         size: 30.0,
-                        color: Color(0xff41ea5d),
+                        color: titulo[index].startsWith('[O')
+                            ? Color(0xff41ea5d)
+                            : Colors.orangeAccent,
                       ),
                       backgroundColor: Colors.lightGreenAccent[300],
                       title: Container(
@@ -91,10 +95,10 @@ class Oportunidades extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              "Oportunidade - Brasil",
+                              titulo[index],
                               style: TextStyle(
                                 fontFamily: 'BalooBhai',
-                                fontSize: 25,
+                                fontSize: 18,
                                 color: Colors.black,
                               ),
                             ),
@@ -107,11 +111,10 @@ class Oportunidades extends StatelessWidget {
                           children: [
                             Container(
                               margin: EdgeInsets.only(left: 8, right: 8),
-                              child: Text(
-                                  "A oportunidade é a gente criar vergonha na cara e parar de ficar usando biblioteca pra fazer tudo igual uns palerma demente IZIIIIII PESADAUM",
+                              child: Text(desc[index],
                                   style: TextStyle(
                                       fontFamily: 'BalooBhai',
-                                      fontSize: 17,
+                                      fontSize: 14,
                                       color: Colors.black)),
                             ),
                             Row(
@@ -134,8 +137,12 @@ class Oportunidades extends StatelessWidget {
                                         decoration: BoxDecoration(
                                             gradient: LinearGradient(
                                               colors: [
-                                                Color(0xff41ea5d),
-                                                Color(0xffb5f2bf)
+                                                titulo[index].startsWith('[E')
+                                                    ? Color(0xff41ea5d)
+                                                    : Colors.orange,
+                                                titulo[index].startsWith('[E')
+                                                    ? Color(0xffb5f2bf)
+                                                    : Colors.orangeAccent
                                               ],
                                               begin: Alignment.centerLeft,
                                               end: Alignment.centerRight,
@@ -147,7 +154,9 @@ class Oportunidades extends StatelessWidget {
                                               maxWidth: 300.0, minHeight: 50.0),
                                           alignment: Alignment.center,
                                           child: Text(
-                                            "Detalhes",
+                                            titulo[index].startsWith('[E')
+                                                ? "Detalhes"
+                                                : 'Seja Premium',
                                             textAlign: TextAlign.center,
                                             style:
                                                 TextStyle(color: Colors.white),

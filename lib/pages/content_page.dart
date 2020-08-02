@@ -1,4 +1,4 @@
-import 'package:apex_plus/lesson.dart';
+import 'package:apex_plus/widgets/lesson.dart';
 import 'package:flutter/material.dart';
 
 class ContentPage extends StatefulWidget {
@@ -18,7 +18,6 @@ class _ContentPageState extends State<ContentPage> {
             valueColor: AlwaysStoppedAnimation(Colors.green)),
       ),
     );
-
 
     final topContentText = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,8 +98,7 @@ class _ContentPageState extends State<ContentPage> {
         child: RaisedButton(
           onPressed: () => {},
           color: Color.fromRGBO(58, 66, 86, 1.0),
-          child:
-          Text("Começar", style: TextStyle(color: Colors.white)),
+          child: Text("Começar", style: TextStyle(color: Colors.white)),
         ));
     final bottomContent = Container(
       width: MediaQuery.of(context).size.width,

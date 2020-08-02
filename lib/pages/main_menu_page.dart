@@ -1,4 +1,5 @@
-import 'package:apex_plus/success_tiles.dart';
+import 'package:apex_plus/pages/cursos.dart';
+import 'package:apex_plus/widgets/success_tiles.dart';
 import 'package:flutter/material.dart';
 import 'mapa.dart';
 import 'oportunidades.dart';
@@ -16,6 +17,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
   final Oportunidades _oportunidades = new Oportunidades();
   final Mapa _mapa = new Mapa();
   final Widget _roadmap = new SuccessTimeline();
+  final Cursos _premium = new Cursos();
 
   // Necessary this redundance of Home Screen
   Widget _showPage = new SuccessTimeline();
@@ -31,6 +33,8 @@ class _MainMenuPageState extends State<MainMenuPage> {
       case 2:
         return _mapa;
         break;
+      case 3:
+        return _premium;
       default:
         return new Container(
           child: Center(
@@ -48,7 +52,7 @@ class _MainMenuPageState extends State<MainMenuPage> {
         index: _page,
         color: Color(0xFF4dff4d),
         backgroundColor: Colors.white,
-        animationCurve: Curves.linearToEaseOut,
+        animationCurve: Curves.linear,
         items: <Widget>[
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -91,6 +95,22 @@ class _MainMenuPageState extends State<MainMenuPage> {
               ),
               Text(
                 "Mapa",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                ),
+              ),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.star,
+                color: Colors.white,
+              ),
+              Text(
+                "Premium",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 10,

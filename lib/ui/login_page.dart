@@ -1,5 +1,4 @@
-import 'package:apex_plus/demo.dart';
-import 'package:apex_plus/main_menu_page.dart';
+import 'package:apex_plus/pages/main_menu_page.dart';
 import 'package:apex_plus/pages/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -491,9 +490,10 @@ class _LoginPageState extends State<LoginPage>
                             controller: signupConfirmPasswordController,
                             obscureText: _obscureTextSignupConfirm,
                             style: TextStyle(
-                                fontFamily: "SpartanRegular",
-                                fontSize: 16.0,
-                                color: Colors.black),
+                              fontFamily: "SpartanRegular",
+                              fontSize: 16.0,
+                              color: Colors.black,
+                            ),
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               icon: Icon(

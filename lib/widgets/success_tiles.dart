@@ -1,7 +1,8 @@
 import 'dart:math';
 
+import 'package:apex_plus/pages/bloqueado.dart';
+import 'package:apex_plus/pages/lista_trilha.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_showcase/flutter_showcase.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:timeline_tile/timeline_tile.dart';
@@ -73,44 +74,37 @@ class SuccessTimelineState extends State<SuccessTimeline> {
       const Step(
         step: 1,
         title: 'Avaliação da capacidade exportadora',
-        message:
-            'Step number one, decide exactly what it is you want in each part of your life. Become a "meaningful specific" rather than a "wandering generality."',
+        message: 'Nos ajude Yves',
       ),
       const Step(
         step: 2,
         title: 'Habilitação junto à receita federal e ao SECINT',
-        message:
-            'Second, write it down, clearly and in detail. Always think on paper. A goal that is not in writing is not a goal at all. It is merely a wish and it has no energy behind it.',
+        message: 'Por favor',
       ),
       const Step(
         step: 3,
         title: 'Sobre os INCOTERMS',
-        message:
-            'Third, set a deadline for your goal. A deadline acts as a "forcing system” in your subconscious mind. It motivates you to do the things necessary to make your goal come true. If it is a big enough goal, set sub-deadlines as well. Don’t leave this to chance.',
+        message: 'Precisamos desses textos',
       ),
       const Step(
         step: 4,
         title: 'Definição do preço de exportação',
-        message:
-            'Fourth, make a list of everything that you can think of that you are going to have to do to achieve your goal. When you think of new tasks and activities, write them on your list until your list is complete.',
+        message: 'Pro app fazer sentido',
       ),
       const Step(
         step: 5,
         title: 'Sobre a licença de exportação',
-        message:
-            'Fifth, organize your list into a plan. Decide what you will have to do first and what you will have to do second. Decide what is more important and what is less important. And then write out your plan on paper, the same way you would develop a blueprint to build your dream house.',
+        message: 'Queremos acabar isso logo',
       ),
       const Step(
         step: 6,
         title: 'Registrando a exportação',
-        message:
-            'The sixth step is for you to take action on your plan. Do something. Do anything. But get busy. Get going.',
+        message: 'Ninguem aguenta mais',
       ),
       const Step(
         step: 7,
         title: 'Despacho aduaneiro e documentos fiscais',
-        message:
-            'Do something every single day that moves you in the direction of your most important goal at the moment. Develop the discipline of doing something 365 days each year that is moving you forward. You will be absolutely astonished at how much you accomplish when you utilize this formula in your life every single day.',
+        message: 'Oq acham de explodirmos a apex?',
       ),
     ];
   }
@@ -196,7 +190,7 @@ class _TimelineStepIndicator extends StatelessWidget {
       child: Center(
         child: Text(
           step,
-          style: GoogleFonts.architectsDaughter(
+          style: TextStyle(
             fontSize: 22,
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -244,7 +238,7 @@ class _TimelineStepsChild extends StatelessWidget {
             subtitle,
             textAlign: isLeftAlign ? TextAlign.right : TextAlign.left,
             style: GoogleFonts.robotoSlab(
-              fontSize: 18,
+              fontSize: 14,
               color: Colors.black,
             ),
           ),
@@ -254,7 +248,19 @@ class _TimelineStepsChild extends StatelessWidget {
               width: 120.0,
               height: 40.0,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (title == 'Avaliação da capacidade exportadora') {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => ListTrilhaPage()));
+                  } else {
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => Bloqueado()));
+                  }
+                },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0)),
                 padding: EdgeInsets.all(0.0),
@@ -271,7 +277,7 @@ class _TimelineStepsChild extends StatelessWidget {
                         BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
                     alignment: Alignment.center,
                     child: Text(
-                      "Detalhes",
+                      "Começar",
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
@@ -301,13 +307,21 @@ class _Header extends StatelessWidget {
             Row(
               children: <Widget>[
                 Expanded(
-                  child: Text(
-                    'Trilha do exportador',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.architectsDaughter(
-                      fontSize: 26,
-                      color: const Color(0xFF57C84D),
-                      fontWeight: FontWeight.bold,
+                  child: Container(
+                    padding: const EdgeInsets.all(2),
+                    margin: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: Colors.orange.withOpacity(0.5),
+                      borderRadius: const BorderRadius.all(Radius.circular(8)),
+                    ),
+                    child: Text(
+                      'Trilha do exportador',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 26,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),

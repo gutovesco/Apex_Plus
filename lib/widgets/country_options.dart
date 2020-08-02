@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ui' as ui;
-import 'package:apex_plus/main_menu_page.dart';
+import 'package:apex_plus/pages/main_menu_page.dart';
 
 class CountryOptions extends StatefulWidget {
   @override
@@ -54,8 +54,7 @@ class _CountryOptionsState extends State<CountryOptions> {
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.only(top: 20),
-                      child:
-                      Text(
+                      child: Text(
                         "Sua cara metade é:",
                         style: TextStyle(
                           fontFamily: "SpartanRegular",
@@ -112,7 +111,7 @@ class _CountryOptionsState extends State<CountryOptions> {
                 new Divider(height: _height / 30, color: Colors.white),
                 new Padding(
                   padding:
-                  new EdgeInsets.only(left: _width / 8, right: _width / 8),
+                      new EdgeInsets.only(left: _width / 8, right: _width / 8),
                   child: new FlatButton(
                     onPressed: () {
                       Navigator.push(
@@ -123,15 +122,15 @@ class _CountryOptionsState extends State<CountryOptions> {
                     },
                     child: new Container(
                         child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            new Icon(Icons.check),
-                            new SizedBox(
-                              width: _width / 30,
-                            ),
-                            new Text('Vamos lá!')
-                          ],
-                        )),
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new Icon(Icons.check),
+                        new SizedBox(
+                          width: _width / 30,
+                        ),
+                        new Text('Vamos lá!')
+                      ],
+                    )),
                     color: Colors.green[50],
                   ),
                 ),
@@ -144,7 +143,7 @@ class _CountryOptionsState extends State<CountryOptions> {
   }
 
   Widget rowCell(String count, String type) => new Expanded(
-      child: new Column(
+          child: new Column(
         children: <Widget>[
           new Text(
             '$count',
