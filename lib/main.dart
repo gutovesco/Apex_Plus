@@ -1,4 +1,3 @@
-import 'package:apex_plus/ui/conteudo_trilha.dart';
 import 'package:flutter/material.dart';
 import 'package:apex_plus/ui/login_page.dart';
 import 'package:apex_plus/_shared/lib/env.dart';
@@ -65,7 +64,7 @@ class App extends StatelessWidget {
     return new MaterialApp(
       title: 'Apex Plus',
       theme: new ThemeData(primaryColor: Color(0xFF4dff4d)),
-      home: new ConteudoTrilha(),
+      home: new LoginPage(),
       debugShowCheckedModeBanner: false,
     );
   }
