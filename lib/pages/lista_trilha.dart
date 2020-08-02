@@ -1,5 +1,5 @@
-import 'package:apex_plus/pages/licao.dart';
 import 'package:apex_plus/pages/nao_liberado.dart';
+import 'package:apex_plus/ui/conteudo_trilha.dart';
 import 'package:flutter/material.dart';
 
 class ListTrilhaPage extends StatelessWidget {
@@ -76,7 +76,7 @@ class ListTrilhaPage extends StatelessWidget {
                                     context,
                                     new MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          Licao(),
+                                          ConteudoTrilha(),
                                     ),
                                   );
                                 }

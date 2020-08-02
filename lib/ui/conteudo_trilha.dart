@@ -1,3 +1,4 @@
+import 'package:apex_plus/pages/questions.dart';
 import 'package:apex_plus/ui/play_pause_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -8,17 +9,23 @@ class ConteudoTrilha extends StatefulWidget {
 }
 
 class _ConteudoTrilhaState extends State<ConteudoTrilha> {
-
   List<Map<String, dynamic>> listaComentarios = [
-    {"usuario" : "Lengueen", "selecionado" : false, "comentario": "Eu sou uma foca"},
-    {"usuario" : "Julinho", "selecionado" : true, "comentario" : "To com depressão"}
+    {
+      "usuario": "Lengueen",
+      "selecionado": false,
+      "comentario": "Eu sou uma foca"
+    },
+    {
+      "usuario": "Julinho",
+      "selecionado": true,
+      "comentario": "To com depressão"
+    }
   ];
-
 
   bool visibleYoutube = true;
 
-  List<String> _data = ["Comentários"];
-  bool isExpanded =false;
+  List<String> _data = ["FAQ"];
+  bool isExpanded = true;
 
   /*YoutubePlayerController _controller;
 
@@ -82,7 +89,6 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,14 +97,14 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
         centerTitle: true,
       ),
       body: LayoutBuilder(
-        builder: ( context,  constraints){
+        builder: (context, constraints) {
           return SingleChildScrollView(
             child: Column(
               children: [
                 Container(
                   height: 200,
                   width: MediaQuery.of(context).size.width,
-                  child:  Stack(
+                  child: Stack(
                     alignment: Alignment.bottomCenter,
                     children: <Widget>[
                       VideoPlayer(_controller),
@@ -113,65 +119,79 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       width: MediaQuery.of(context).size.width,
-                      child: Text("Descrição", style: TextStyle(
-                          fontFamily: "SpartanRegular",
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold
-                      ),),
+                      child: Text(
+                        "Descrição",
+                        style: TextStyle(
+                            fontFamily: "SpartanRegular",
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
                           Expanded(
-                            child:  Text("awdawdawdawdaawdawdawdawdawdawdwadawdawdawdawdawdawdwadwadawdawdawdawdawdwadawdawdawdawd",
-                                style: TextStyle(fontFamily: "SpartanRegular",)),
+                            child: Text(
+                                "awdawdawdawdaawdawdawdawdawdawdwadawdawdawdawdawdawdwadwadawdawdawdawdawdwadawdawdawdawd",
+                                style: TextStyle(
+                                  fontFamily: "SpartanRegular",
+                                )),
                           )
                         ],
                       ),
                     )
                   ],
                 ),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Container(
-                  width: MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width * 0.20),
+                  height: 70,
+                  width: 220,
                   child: RaisedButton(
-                    onPressed: () {},
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                      BorderRadius.circular(30.0)),
-                  padding: EdgeInsets.all(0.0),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            Color(0xff41ea5d),
-                            Color(0xffb5f2bf)
-                          ],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                          builder: (BuildContext context) => Quiz1(),
                         ),
-                        borderRadius:
-                        BorderRadius.circular(30.0)),
-                    child: Container(
-                      constraints: BoxConstraints(
-                          maxWidth: MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width * 0.20), minHeight: 50.0),
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Detalhes",
-                        textAlign: TextAlign.center,
-                        style:
-                        TextStyle(color: Colors.white),
+                      );
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0)),
+                    padding: EdgeInsets.all(0.0),
+                    child: Ink(
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color(0xff41ea5d), Color(0xffb5f2bf)],
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                          ),
+                          borderRadius: BorderRadius.circular(30.0)),
+                      child: Container(
+                        height: 50,
+                        width: 200,
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Fazer Quiz",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
-                ),),
-                SizedBox(height: 10,),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
                 ExpansionPanelList(
-                  expansionCallback: (int index, bool expanded){
+                  expansionCallback: (int index, bool expanded) {
                     this.setState(() {
                       isExpanded = !isExpanded;
                     });
@@ -180,11 +200,11 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
                     return ExpansionPanel(
                       headerBuilder: (BuildContext context, bool isExpanded) {
                         return ListTile(
-                          title: Text(item, style: TextStyle(
-                          fontFamily: "SpartanRegular",
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold
-                          )),
+                          title: Text(item,
+                              style: TextStyle(
+                                  fontFamily: "SpartanRegular",
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold)),
                         );
                       },
                       body: Container(
@@ -195,23 +215,26 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
                             ListView.builder(
                               shrinkWrap: true,
                               itemCount: 2,
-                              itemBuilder: (BuildContext context, int index){
-
-                                Map<String, dynamic> usuario = listaComentarios[index];
+                              itemBuilder: (BuildContext context, int index) {
+                                Map<String, dynamic> usuario =
+                                    listaComentarios[index];
 
                                 return ListTile(
-                                    leading: CircleAvatar(
-
-                                    ),
+                                    leading: CircleAvatar(),
                                     title: Text(usuario["usuario"]),
                                     subtitle: Text(usuario["comentario"]),
-                                    trailing: usuario["selecionado"] ? Icon(Icons.star) : Icon(Icons.star_border),
+                                    trailing: usuario["selecionado"]
+                                        ? Icon(Icons.star)
+                                        : Icon(Icons.star_border),
                                     onTap: () {
                                       setState(() {
-                                        listaComentarios[index]["selecionado"] = !listaComentarios[index]["selecionado"];
+                                        listaComentarios[index]["selecionado"] =
+                                            !listaComentarios[index]
+                                                ["selecionado"];
                                       });
                                     });
-                              },)
+                              },
+                            )
                           ],
                         ),
                       ),
@@ -248,7 +271,6 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
   }
 
   //bool
-
 
   /*
 
