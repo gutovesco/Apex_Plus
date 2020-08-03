@@ -68,7 +68,7 @@ class ListTrilhaThree extends StatelessWidget {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontFamily: "SpartanRegular",
-                                        fontSize: 16,
+                                        fontSize: 14,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
