@@ -10,12 +10,14 @@ class Bloqueado extends StatelessWidget {
       ),
       body: Container(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.lock,
-              color: Colors.grey,
-              size: 95,
+            Center(
+              child: Icon(
+                Icons.lock,
+                color: Colors.grey,
+                size: 95,
+              ),
             ),
             SizedBox(
               height: 50,
@@ -23,7 +25,7 @@ class Bloqueado extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                'Oops!\nParece que esse conteúdo ainda não foi liberado!',
+                'Oops!\n\nParece que esse conteúdo ainda não foi liberado :(',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 18,

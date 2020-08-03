@@ -8,44 +8,45 @@ class _HeaderCursos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.all(16),
-        margin: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.5),
-          borderRadius: const BorderRadius.all(Radius.circular(8)),
-        ),
-        child: Column(
-          children: [
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Text(
-                    'Cursos Premium',
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.architectsDaughter(
-                      fontSize: 26,
-                      color: Colors.yellow,
-                      fontWeight: FontWeight.bold,
-                    ),
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.green,
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  'Cursos Premium',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.architectsDaughter(
+                    fontSize: 26,
+                    color: Colors.yellow,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ],
-            ),
-          ],
-        ));
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
 
 class Cursos extends StatelessWidget {
   final List<String> descCurso = [
-    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
-    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
-    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
+    'Duração: 54 horas.',
+    'Duração: 40 horas.',
+    'Duração: 36 horas.',
   ];
   final List<String> tituloCurso = [
-    'Como Exportar +Mais+',
-    'Maximizando os Lucros',
-    'Seja um exportador ULTRA PRO',
+    'Logística para Exportação',
+    'Plano de Negócios Internacionais',
+    'Exportação de Serviços',
   ];
   @override
   Widget build(BuildContext context) {

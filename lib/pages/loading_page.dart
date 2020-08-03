@@ -19,9 +19,9 @@ class _LoadingPageState extends State<LoadingPage> {
   }
 
   List<String> loadingPhrases = [
-    'Recuperando informações...',
+    'Recuperando Informações...',
     'Preparando o Roadmap...',
-    'Atualizando mapa de oportunidades...',
+    'Atualizando Mapa de Oportunidades...',
     'Tudo Pronto!\nSeja muito Bem Vindo(a)!'
   ];
   int i = -1;

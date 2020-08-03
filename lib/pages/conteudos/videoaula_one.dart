@@ -1,14 +1,14 @@
-import 'package:apex_plus/pages/questions.dart';
+import 'package:apex_plus/pages/conteudos/quiz_one.dart';
 import 'package:apex_plus/ui/play_pause_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class ConteudoTrilha extends StatefulWidget {
+class VideoaulaOne extends StatefulWidget {
   @override
-  _ConteudoTrilhaState createState() => _ConteudoTrilhaState();
+  _VideoaulaOneState createState() => _VideoaulaOneState();
 }
 
-class _ConteudoTrilhaState extends State<ConteudoTrilha> {
+class _VideoaulaOneState extends State<VideoaulaOne> {
   List<Map<String, dynamic>> listaComentarios = [
     {
       "usuario": "Lengueen",
@@ -24,48 +24,8 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
 
   bool visibleYoutube = true;
 
-  List<String> _data = ["FAQ"];
+  List<String> _data = ["Comentários"];
   bool isExpanded = true;
-
-  /*YoutubePlayerController _controller;
-
-  @override
-  void initState() {
-    String url = YoutubePlayerController.convertUrlToId("https://www.youtube.com/watch?v=etOxVzWo5NQ&t=82s");
-    super.initState();
-    _controller = YoutubePlayerController(
-      initialVideoId: url,
-      params: const YoutubePlayerParams(
-        startAt: const Duration(minutes: 1, seconds: 36),
-        showControls: true,
-        showFullscreenButton: true,
-        desktopMode: false,
-      ),
-    )..listen((value) {
-      if (value.isReady && !value.hasPlayed) {
-        _controller
-          ..hidePauseOverlay()
-          ..hideTopMenu();
-      }
-    });
-    _controller.onEnterFullscreen = () {
-      SystemChrome.setPreferredOrientations([
-        DeviceOrientation.landscapeLeft,
-        DeviceOrientation.landscapeRight,
-      ]);
-      //log('Entered Fullscreen');
-    };
-    _controller.onExitFullscreen = () {
-      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-      Future.delayed(const Duration(seconds: 1), () {
-        _controller.play();
-      });
-      Future.delayed(const Duration(seconds: 5), () {
-        SystemChrome.setPreferredOrientations(DeviceOrientation.values);
-      });
-      //log('Exited Fullscreen');
-    };
-  }*/
 
   VideoPlayerController _controller;
 
@@ -152,14 +112,14 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
                   height: 10,
                 ),
                 Container(
-                  height: 70,
-                  width: 220,
+                  height: 55,
+                  width: 205,
                   child: RaisedButton(
                     onPressed: () {
                       Navigator.push(
                         context,
                         new MaterialPageRoute(
-                          builder: (BuildContext context) => Quiz1(),
+                          builder: (BuildContext context) => QuizOne(),
                         ),
                       );
                     },
@@ -238,26 +198,6 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
                           ],
                         ),
                       ),
-
-                      /*Container(
-                        width: 100,
-                        child: ListView.builder(
-                          itemCount: 2,
-                            itemBuilder: (context, index){
-                          return ListTile(
-                              leading: CircleAvatar(
-
-                              ),
-                              title: Text("Lengueen"),
-                              subtitle: Text('Eu sou uma foca'),
-                              trailing: Icon(Icons.star_border),
-                              onTap: () {
-                                setState(() {
-                                  _data.removeWhere((currentItem) => item == currentItem);
-                                });
-                              });
-                        }),
-                      )*/
                       isExpanded: isExpanded,
                     );
                   }).toList(),
@@ -269,39 +209,4 @@ class _ConteudoTrilhaState extends State<ConteudoTrilha> {
       ),
     );
   }
-
-  //bool
-
-  /*
-
-  Widget _buildPanel() {
-    return ExpansionPanelList(
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          _data[index].isExpanded = !isExpanded;
-        });
-      },
-      children: _data.map<ExpansionPanel>((Item item) {
-        return ExpansionPanel(
-          headerBuilder: (BuildContext context, bool isExpanded) {
-            return ListTile(
-              title: Text(item.headerValue),
-            );
-          },
-          body: ListTile(
-              title: Text(item.expandedValue),
-              subtitle: Text('To delete this panel, tap the trash can icon'),
-              trailing: Icon(Icons.delete),
-              onTap: () {
-                setState(() {
-                  _data.removeWhere((currentItem) => item == currentItem);
-                });
-              }),
-          isExpanded: item.isExpanded,
-        );
-      }).toList(),
-    );
-
-  */
-
 }

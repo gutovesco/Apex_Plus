@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:expansion_card/expansion_card.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class OportunidadesPage extends StatefulWidget {
@@ -31,23 +32,35 @@ class _OportunidadesPageState extends State<OportunidadesPage> {
 class Oportunidades extends StatelessWidget {
   final double cardHeight = 160.0;
   final List<String> titulo = [
-    '[Oportunidade] Açúcar e Álcool - Japão',
-    '[Evento] Reunião da comissão blablabla',
-    '[Oportunidade] Café - Estados Unidos',
-    '[Evento] Convenção dos exportadores',
-    '[Oportunidade] Papel e Celulose - China',
-    '[Evento] Show da Lady Gaga',
+    '[Oportunidade] China - Celulose',
+    '[Evento] Expo Dubai 2020',
+    '[Oportunidade] Estados Unidos - Café',
+    '[Evento] ISM 2020',
+    '[Oportunidade] Países Baixos - Celulose',
+    '[Evento] CIIE 2020',
   ];
   final List<String> desc = [
-    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
-    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
-    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
-    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
-    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
-    'Esta é uma bela descrição a ser descrita por algum descritor descritivo',
+    'Esta é uma oportunidade visível somente aos assinantes. Atualize para Premium para saber mais detalhes.',
+    'Oportunidades, Mobilidade e Sustentabilidade\nData: 01/10/2021 - 31/03/2022\nLocalidade: Dubai - EMIRADOS ÁRABES UNIDOS',
+    'Esta é uma oportunidade visível somente aos assinantes. Atualize para Premium para saber mais detalhes.',
+    'Chocolates, balas e confeitos em geral\nData: 02/02/2020 - 05/02/2020\nLocalidade: Colônia – ALEMANHA',
+    'Esta é uma oportunidade visível somente aos assinantes. Atualize para Premium para saber mais detalhes.',
+    '- Geral -\nData: 04/11/2020 - 08/11/2020\nLocalidade: Xangai – CHINA.',
   ];
-  final List<String> tituloEvento = [];
-  final List<String> descEvento = [];
+  final List<String> links = [
+    'https://www.expo2020dubai.com/',
+    'https://www.ism-cologne.com/',
+    'https://www.ciie.org/zbh/en/'
+  ];
+
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,9 +81,9 @@ class Oportunidades extends StatelessWidget {
             children: [
               SizedBox(height: 20),
               Center(
-                  child: Container(
-                width: 280,
-                child: Neumorphic(
+                child: Container(
+                  width: 280,
+                  child: Neumorphic(
                     style: NeumorphicStyle(
                         shape: NeumorphicShape.concave,
                         depth: 8,
@@ -128,7 +141,10 @@ class Oportunidades extends StatelessWidget {
                                     width: 100.0,
                                     height: 35.0,
                                     child: RaisedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        if (titulo[index].startsWith('[E'))
+                                          _launchURL(links[index ~/ 2]);
+                                      },
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(30.0)),
@@ -171,8 +187,11 @@ class Oportunidades extends StatelessWidget {
                           ],
                         )
                       ],
-                    )),
-              )),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
             ],
           );
         },

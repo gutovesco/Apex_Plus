@@ -1,4 +1,4 @@
-import 'package:apex_plus/pages/questions.dart';
+import 'package:apex_plus/pages/conteudos/quiz_one.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter/scheduler.dart';
@@ -10,7 +10,8 @@ class ContentCard extends StatefulWidget {
   final String title;
   final String subtitle;
 
-  ContentCard({this.color, this.title = "", this.subtitle, this.altColor}) : super();
+  ContentCard({this.color, this.title = "", this.subtitle, this.altColor})
+      : super();
 
   @override
   _ContentCardState createState() => _ContentCardState();
@@ -48,8 +49,10 @@ class _ContentCardState extends State<ContentCard> {
         Transform(
           transform: Matrix4.diagonal3Values(scaleX, scaleY, 1),
           child: Transform.translate(
-            offset: Offset(-(scaleX - 1) / 2 * size.width, -(scaleY - 1) / 2 * size.height + offsetY),
-            child: Image.asset('images/Bg-${widget.color}.png', fit: BoxFit.cover, package: App.pkg),
+            offset: Offset(-(scaleX - 1) / 2 * size.width,
+                -(scaleY - 1) / 2 * size.height + offsetY),
+            child: Image.asset('images/Bg-${widget.color}.png',
+                fit: BoxFit.cover, package: App.pkg),
           ),
         ),
         Container(
@@ -62,13 +65,21 @@ class _ContentCardState extends State<ContentCard> {
                 Expanded(
                   flex: 3,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-                    child: Image.asset('images/Illustration-${widget.color}.png', fit: BoxFit.contain, package: App.pkg, scale: 1.5),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 15.0),
+                    child: Image.asset(
+                        'images/Illustration-${widget.color}.png',
+                        fit: BoxFit.contain,
+                        package: App.pkg,
+                        scale: 1.5),
                   ),
                 ),
 
                 //Slider circles
-                Container(height: 14, child: Image.asset('images/Slider-${widget.color}.png', package: App.pkg)),
+                Container(
+                    height: 14,
+                    child: Image.asset('images/Slider-${widget.color}.png',
+                        package: App.pkg)),
 
                 //Bottom content
                 Expanded(
@@ -93,36 +104,44 @@ class _ContentCardState extends State<ContentCard> {
       children: <Widget>[
         Text(widget.title,
             textAlign: TextAlign.center,
-            style: TextStyle(height: 1.2, fontSize: 30.0, fontFamily: 'SpartanRegular', color: Colors.white, package: App.pkg)),
+            style: TextStyle(
+                height: 1.2,
+                fontSize: 30.0,
+                fontFamily: 'SpartanRegular',
+                color: Colors.white,
+                package: App.pkg)),
         Text(widget.subtitle,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.w300, fontFamily: 'SpartanRegular', color: Colors.white, package: App.pkg)),
+            style: TextStyle(
+                fontSize: 14.0,
+                fontWeight: FontWeight.w300,
+                fontFamily: 'SpartanRegular',
+                color: Colors.white,
+                package: App.pkg)),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 36.0),
           child: MaterialButton(
             elevation: 0,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
             color: widget.altColor,
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Text(
-                'Get Started',
-                style: TextStyle(
-                    fontSize: 20,
-                    letterSpacing: .10,
-                    fontFamily: 'SpartanRegular',
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                    package: App.pkg)
-              ),
+              child: Text('Get Started',
+                  style: TextStyle(
+                      fontSize: 20,
+                      letterSpacing: .10,
+                      fontFamily: 'SpartanRegular',
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                      package: App.pkg)),
             ),
             onPressed: () {
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                new Quiz1()));
-                  },
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (BuildContext context) => new QuizOne()));
+            },
           ),
         )
       ],

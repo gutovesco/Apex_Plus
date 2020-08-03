@@ -27,6 +27,7 @@ dev_dependencies:
   timeline_tile: 
   google_fonts: 
   flutter_highlight: 
+  url_launcher: ^5.5.0
   flutter_showcase:
   chewie:
   video_player:

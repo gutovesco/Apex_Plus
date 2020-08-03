@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:apex_plus/pages/bloqueado.dart';
-import 'package:apex_plus/pages/lista_trilha.dart';
+import 'package:apex_plus/pages/conteudos/list_trilha_two.dart';
+import 'package:apex_plus/pages/conteudos/list_trilha_three.dart';
+import 'package:apex_plus/pages/conteudos/list_trilha_one.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
@@ -73,38 +75,58 @@ class SuccessTimelineState extends State<SuccessTimeline> {
     return <Step>[
       const Step(
         step: 1,
-        title: 'Avaliação da capacidade exportadora',
-        message: 'Nos ajude Yves',
+        title: 'Avaliação da Capacidade Exportadora',
+        message:
+            'Neste módulo vamos verificar os principais aspectos acerca da capacidade exportadora de um negócio e suas implicações.',
       ),
       const Step(
         step: 2,
-        title: 'Habilitação junto à receita federal e ao SECINT',
-        message: 'Por favor',
+        title: 'Sobre os INCOTERMS',
+        message:
+            'Os INCOTERMS formam uma parcela importante dos contratos! Juntos vamos aprender sobre eles neste módulo!',
       ),
       const Step(
         step: 3,
-        title: 'Sobre os INCOTERMS',
-        message: 'Precisamos desses textos',
+        title: 'Classificação da Mercadoria e Mercados',
+        message:
+            'O mercado internacional possui uma “linguagem” própria para identificar as mercadorias. Vem com a gente aprender a classificar seu produto!',
       ),
       const Step(
         step: 4,
-        title: 'Definição do preço de exportação',
-        message: 'Pro app fazer sentido',
+        title: 'A Importância do "Fit" Cultural',
+        message:
+            'Chegou o momento de entender este aspecto fundamental e interessante dos negócios internacionais!',
       ),
       const Step(
         step: 5,
-        title: 'Sobre a licença de exportação',
-        message: 'Queremos acabar isso logo',
+        title: 'Habilitação junto à Receita Federal e ao SISCOMEX',
+        message:
+            'Fundamental para a viabilidade de qualquer processo de exportação, a habilitação deve ser bem compreendida! Vamos lá?',
       ),
       const Step(
         step: 6,
-        title: 'Registrando a exportação',
-        message: 'Ninguem aguenta mais',
+        title: 'Definição do Preço de Exportação',
+        message:
+            'Pode ser que você já saiba definir os preços para o seu produto no mercado interno... Agora chegou a hora de aprender como fazê-lo para o mercado externo!',
       ),
       const Step(
         step: 7,
-        title: 'Despacho aduaneiro e documentos fiscais',
-        message: 'Oq acham de explodirmos a apex?',
+        title:
+            'Sobre a Licença de Exportação, Registro, Despacho Aduaneiro e Documentos Fiscais',
+        message:
+            'Neste módulo a gente te ajuda a aprender os principais conceitos para colocar a documentação em ordem!',
+      ),
+      const Step(
+        step: 8,
+        title: 'Transporte Internacional',
+        message:
+            'Como fazer o produto chegar ao seu destino e fazer muitas felizes? Vem com a gente aprender!',
+      ),
+      const Step(
+        step: 9,
+        title: 'Conhecendo a Apex e Conquistando o Mundo!',
+        message:
+            'Parabéns! Agora você possui conhecimentos importantes, veja como a Apex e nosso Conteúdo Premium podem te ajudar à ir ainda mais longe!',
       ),
     ];
   }
@@ -134,6 +156,7 @@ class _TimelineSteps extends StatelessWidget {
           final bool isLeftAlign = itemIndex.isEven;
 
           final child = _TimelineStepsChild(
+            id: step.step.toInt(),
             title: step.title,
             subtitle: step.message,
             isLeftAlign: isLeftAlign,
@@ -204,11 +227,13 @@ class _TimelineStepIndicator extends StatelessWidget {
 class _TimelineStepsChild extends StatelessWidget {
   const _TimelineStepsChild({
     Key key,
+    this.id,
     this.title,
     this.subtitle,
     this.isLeftAlign,
   }) : super(key: key);
 
+  final int id;
   final String title;
   final String subtitle;
   final bool isLeftAlign;
@@ -249,11 +274,23 @@ class _TimelineStepsChild extends StatelessWidget {
               height: 40.0,
               child: RaisedButton(
                 onPressed: () {
-                  if (title == 'Avaliação da capacidade exportadora') {
-                    Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                            builder: (context) => ListTrilhaPage()));
+                  if (id <= 3) {
+                    var route;
+                    switch (id) {
+                      case 1:
+                        route = ListTrilhaOne();
+                        break;
+                      case 2:
+                        route = ListTrilhaTwo();
+                        break;
+                      case 3:
+                        route = ListTrilhaThree();
+                        break;
+                      default:
+                        route = ListTrilhaOne();
+                    }
+                    Navigator.push(context,
+                        new MaterialPageRoute(builder: (context) => route));
                   } else {
                     Navigator.push(
                         context,
@@ -267,7 +304,10 @@ class _TimelineStepsChild extends StatelessWidget {
                 child: Ink(
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Color(0xff41ea5d), Color(0xffb5f2bf)],
+                        colors: [
+                          id > 3 ? Colors.grey[700] : Color(0xff41ea5d),
+                          id > 3 ? Colors.grey : Color(0xffb5f2bf)
+                        ],
                         begin: Alignment.centerLeft,
                         end: Alignment.centerRight,
                       ),
@@ -277,7 +317,7 @@ class _TimelineStepsChild extends StatelessWidget {
                         BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
                     alignment: Alignment.center,
                     child: Text(
-                      "Começar",
+                      id > 3 ? "Bloqueado" : "Começar",
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
