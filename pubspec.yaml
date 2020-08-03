@@ -33,6 +33,7 @@ dev_dependencies:
   flutter_showcase:
   chewie:
   video_player:
+  rflutter_alert: ^1.0.3
 
 flutter:
 
@@ -43,6 +44,8 @@ flutter:
       - assets/login_logo.png
       - images/
       - assets/img/argentina.png
+      - assets/img/jubileu.png
+      - assets/img/mariazinha.png
 
   fonts:
     - family: TitleFont

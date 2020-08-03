@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class FeedbackPage extends StatelessWidget {
   @override
@@ -97,7 +98,28 @@ class FeedbackPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(90),
               ),
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Alert(
+                    context: context,
+                    type: AlertType.success,
+                    title: "Sucesso!",
+                    desc: "Agradecemos seu feedback.",
+                    buttons: [
+                      DialogButton(
+                        color: const Color(0xFF4dff4d),
+                        child: Text(
+                          "OK",
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.pop(context);
+                        },
+                        width: 120,
+                      )
+                    ],
+                  ).show();
+                },
                 color: const Color(0xFF4dff4d),
                 child: Center(
                   child: Text(

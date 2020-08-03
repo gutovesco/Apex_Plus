@@ -1,4 +1,3 @@
-import 'package:apex_plus/pages/conteudos/quiz_one.dart';
 import 'package:apex_plus/ui/play_pause_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -11,21 +10,21 @@ class VideoaulaThree extends StatefulWidget {
 class _VideoaulaThreeState extends State<VideoaulaThree> {
   List<Map<String, dynamic>> listaComentarios = [
     {
-      "usuario": "Lengueen",
-      "selecionado": false,
-      "comentario": "Eu sou uma foca"
+      "usuario": "Jubileu",
+      "foto": "assets/img/jubileu.png",
+      "selecionado": true,
+      "comentario": "Ótimo conteúdo!"
     },
     {
-      "usuario": "Julinho",
-      "selecionado": true,
-      "comentario": "To com depressão"
+      "usuario": "Mariazinha",
+      "foto": "assets/img/mariazinha.png",
+      "selecionado": false,
+      "comentario": "Amei o vídeo, mudou minha forma de encarar a exportação."
     }
   ];
 
-  bool visibleYoutube = true;
-
   List<String> _data = ["Comentários"];
-  bool isExpanded = true;
+  bool isExpanded = false;
 
   VideoPlayerController _controller;
 
@@ -53,7 +52,7 @@ class _VideoaulaThreeState extends State<VideoaulaThree> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Trilha X"),
+        title: Text("Aula 1"),
         centerTitle: true,
       ),
       body: LayoutBuilder(
@@ -98,7 +97,7 @@ class _VideoaulaThreeState extends State<VideoaulaThree> {
                         children: [
                           Expanded(
                             child: Text(
-                                "awdawdawdawdaawdawdawdawdawdawdwadawdawdawdawdawdawdwadwadawdawdawdawdawdwadawdawdawdawd",
+                                "Nesta lição, mostramos como xyz funciona, além de apresentarmos exemplos reais de mercado e como você pode aplicar esses conceitos em seu próprio negócio.",
                                 style: TextStyle(
                                   fontFamily: "SpartanRegular",
                                 )),
@@ -116,12 +115,7 @@ class _VideoaulaThreeState extends State<VideoaulaThree> {
                   width: 205,
                   child: RaisedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        new MaterialPageRoute(
-                          builder: (BuildContext context) => QuizOne(),
-                        ),
-                      );
+                      Navigator.pop(context);
                     },
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30.0)),
@@ -139,7 +133,7 @@ class _VideoaulaThreeState extends State<VideoaulaThree> {
                         width: 200,
                         alignment: Alignment.center,
                         child: Text(
-                          "Fazer Quiz",
+                          "Próxima Aula",
                           textAlign: TextAlign.center,
                           style: TextStyle(color: Colors.white),
                         ),
@@ -180,7 +174,12 @@ class _VideoaulaThreeState extends State<VideoaulaThree> {
                                     listaComentarios[index];
 
                                 return ListTile(
-                                    leading: CircleAvatar(),
+                                    leading: CircleAvatar(
+                                      child: Image.asset(
+                                        usuario["foto"],
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                     title: Text(usuario["usuario"]),
                                     subtitle: Text(usuario["comentario"]),
                                     trailing: usuario["selecionado"]

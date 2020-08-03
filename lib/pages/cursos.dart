@@ -22,7 +22,7 @@ class _HeaderCursos extends StatelessWidget {
                 child: Text(
                   'Cursos Premium',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.architectsDaughter(
+                  style: TextStyle(
                     fontSize: 26,
                     color: Colors.yellow,
                     fontWeight: FontWeight.bold,
