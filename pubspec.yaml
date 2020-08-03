@@ -23,7 +23,9 @@ dev_dependencies:
   gradient_app_bar:
   liquid_pull_to_refresh: ^1.1.1
   expansion_card:
+  smooth_star_rating: ^1.1.1
   flutter_neumorphic:
+  dropdownfield: ^1.0.3
   timeline_tile: 
   google_fonts: 
   flutter_highlight: 

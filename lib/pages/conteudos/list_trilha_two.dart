@@ -21,14 +21,14 @@ class ListTrilhaTwo extends StatelessWidget {
     'https://www.upinside.com.br/uploads/images/2018/10/criando-o-proprio-player-para-reproducao-de-videos-com-a-tag-video-do-html5-1539347403.jpg',
     'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQw52yXGPrcBfXoiBrCxebYlY06inA7FYlIrQ&usqp=CAU',
     'https://www.grupoescolar.com/galeria/fotos/8896A09B9.jpg',
-    'https://lh3.googleusercontent.com/proxy/DMfWxgXS7BwfQN-4C3N5LWpP7Z8_so5tG3kYmrXjGOygzQYgcAgA7_-mS3oB2etPIj5HH22i3NTNvB58GdfLGeJO1-JD__FoK-rz08lTWpjLU3NYbMwj4JV_cjEY2NqggNyIWar2IBbQoAWTS09VIzN3mOg'
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR93w3t_jzlSrbmtRjpUs1cLZuVZGOe3PfNug&usqp=CAU',
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Avaliação da Capacidade Exportadora"),
+        title: Text("Sobre os INCOTERMS"),
       ),
       body: ListView.builder(
           itemCount: 4,

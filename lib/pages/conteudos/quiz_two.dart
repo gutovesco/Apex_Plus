@@ -1,6 +1,7 @@
 import 'package:apex_plus/pages/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clay_containers/clay_containers.dart';
+import 'package:dropdownfield/dropdownfield.dart';
 
 Color palleteBlue = Color(0xff010a43);
 Color palleteLightPink = Color(0xffffc2c2);
@@ -14,24 +15,36 @@ var quiz = new InitialQuiz();
 
 class InitialQuiz {
   var choices = [
-    ["Beginner", "Intermediate", "Advanced", "Master"],
-    ["IT", "Health", "Real State", "Education"],
-    ["Yes", "No", "I used to", "More than one"],
-    ["0-4 years", "4-7 years", "More than 8 years", "Never"]
+    ["Verdadeiro", "Falso"],
+    ["Verdadeiro", "Falso"],
+    ["Verdadeiro", "Falso"],
+    [
+      'EXW – “Na origem”',
+      'FCA – “Livre no transportador”',
+      'FAS – “Livre ao lado do navio”',
+      'FOB – “Livre a bordo”',
+      'CPT – “Transporte pago até”',
+      'CIP – “Transporte e seguro pagos até”',
+      'CFR – “Custo e frete”',
+      'CIF – “Custo, seguro e frete”',
+      'DAP – “Entregue no local”',
+      'DPU – “Entregue no local desembarcado”',
+      'DDP – “Entregue com direitos pagos”',
+    ]
   ];
 
   var correctAnswers = [
-    ["Beginner", "Intermediate", "Advanced", "Master"],
-    ["IT", "Health", "Real State", "Education"],
-    ["Yes", "No", "I used to", "More than one"],
-    "Pessoas que começaram a trabalhar cedo e acabaram criando grandes empresas"
+    "Falso",
+    "Falso",
+    "Verdadeiro",
+    "Acredito que estou pronto!",
   ];
 
   var questions = [
-    "What is your experience level in this area?",
-    "What's your business's niche?",
-    "Do you own a company?",
-    "For how long have you owned a company?",
+    "Os INCOTERMS compõem a totalidade do contrato entre comprador e vendedor. ",
+    "Os INCOTERMS são apenas convenções, sem relação com as leis internacionais de comércio.",
+    "Os INCOTERMS apenas regulam a como e onde é feita entrega do bem, seus custos e riscos.",
+    "MINHA PERCEPÇÃO:\nConsiderando o conteúdo abordado em aula, qual dos INCOTERMS a seguir você considera ser o que melhor atenderia as necessidades do seu negócio?",
   ];
 }
 
@@ -55,11 +68,13 @@ class QuizTwoState extends State<QuizTwo> {
     setState(() {
       if (questionNumber == quiz.questions.length - 1) {
         Navigator.push(
-            context,
-            new MaterialPageRoute(
-                builder: (context) => new Summary(
-                      score: finalScore,
-                    )));
+          context,
+          new MaterialPageRoute(
+            builder: (context) => new Summary(
+              score: finalScore,
+            ),
+          ),
+        );
       } else {
         questionNumber++;
       }
@@ -68,6 +83,7 @@ class QuizTwoState extends State<QuizTwo> {
 
   @override
   Widget build(BuildContext context) {
+    String value = 'N/A';
     return new WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
@@ -78,7 +94,7 @@ class QuizTwoState extends State<QuizTwo> {
             child: new Column(
               children: <Widget>[
                 SizedBox(
-                  height: 120,
+                  height: 40,
                 ),
                 new Padding(padding: EdgeInsets.all(20.0)),
                 new Container(
@@ -91,148 +107,119 @@ class QuizTwoState extends State<QuizTwo> {
                     textAlign: TextAlign.center,
                     style: new TextStyle(
                       color: palleteBlue,
-                      fontSize: 20.0,
+                      fontSize: 18.0,
                       fontFamily: "SpartanRegular",
                     ),
                   ),
                 ),
                 SizedBox(height: 20),
-                new Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    //button 1
-                    GestureDetector(
-                      onTap: () {
-                        if (quiz.choices[questionNumber][0] ==
-                            quiz.correctAnswers[questionNumber]) {
-                          debugPrint("Correct");
-                          finalScore++;
-                        } else {
-                          debugPrint("Wrong");
-                        }
-                        updateQuestion();
-                      },
-                      child: ClayContainer(
-                        width: 200,
-                        height: 50,
-                        borderRadius: 10,
-                        color: baseColor,
-                        child: Center(
-                          child: ClayText(
-                            quiz.choices[questionNumber][0],
-                            textColor: Colors.black,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontFamily: "SpartanRegular",
+                quiz.choices[questionNumber].length >= 4
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          DropDownField(
+                            value: value,
+                            itemsVisibleInDropdown: 3,
+                            labelText: 'Selecione',
+                            labelStyle: TextStyle(color: Colors.white),
+                            icon: Icon(Icons.airplanemode_active),
+                            items: quiz.choices[3],
+                            setter: (dynamic newValue) {
+                              value = newValue;
+                            },
+                          ),
+                          TextField(
+                            decoration: InputDecoration(
+                              labelText: 'Explique sua escolha...',
+                            ),
+                            maxLines: 2,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              updateQuestion();
+                            },
+                            child: Container(
+                              color: Colors.amber,
+                              height: 50,
+                              width: 200,
+                              child: Center(
+                                child: Text(
+                                  'Enviar',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 32,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 20),
+                        ],
+                      )
+                    : new Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          //button 1
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                finalScore = 8;
+                              });
+                              updateQuestion();
+                            },
+                            child: ClayContainer(
+                              width: 230,
+                              height: 70,
+                              borderRadius: 10,
+                              color: baseColor,
+                              child: Center(
+                                child: ClayText(
+                                  quiz.choices[questionNumber][0],
+                                  textColor: Colors.black,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontFamily: "SpartanRegular",
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 20),
 
-                    //button 2
-                    GestureDetector(
-                      onTap: () {
-                        if (quiz.choices[questionNumber][1] ==
-                            quiz.correctAnswers[questionNumber]) {
-                          debugPrint("Correct");
-                          finalScore++;
-                        } else {
-                          debugPrint("Wrong");
-                        }
-                        updateQuestion();
-                      },
-                      child: ClayContainer(
-                        width: 200,
-                        height: 50,
-                        borderRadius: 10,
-                        color: baseColor,
-                        child: Center(
-                          child: ClayText(
-                            quiz.choices[questionNumber][1],
-                            textColor: Colors.black,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontFamily: "SpartanRegular",
-                            ),
-                          ),
-                        ),
+                          //button 2
+                          quiz.choices[questionNumber].length >= 4
+                              ? SizedBox.shrink()
+                              : GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      finalScore = 8;
+                                    });
+                                    updateQuestion();
+                                  },
+                                  child: ClayContainer(
+                                    width: 230,
+                                    height: 70,
+                                    borderRadius: 10,
+                                    color: baseColor,
+                                    child: Center(
+                                      child: ClayText(
+                                        quiz.choices[questionNumber][1],
+                                        textColor: Colors.black,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                          fontFamily: "SpartanRegular",
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
                 SizedBox(height: 20),
-                new Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    //button 3
-                    GestureDetector(
-                      onTap: () {
-                        if (quiz.choices[questionNumber][2] ==
-                            quiz.correctAnswers[questionNumber]) {
-                          debugPrint("Correct");
-                          finalScore++;
-                        } else {
-                          debugPrint("Wrong");
-                        }
-                        updateQuestion();
-                      },
-                      child: ClayContainer(
-                        width: 200,
-                        height: 50,
-                        borderRadius: 10,
-                        color: baseColor,
-                        child: Center(
-                          child: ClayText(
-                            quiz.choices[questionNumber][2],
-                            textColor: Colors.black,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontFamily: "SpartanRegular",
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    SizedBox(height: 20),
-
-                    //button 4
-                    GestureDetector(
-                      onTap: () {
-                        if (quiz.choices[questionNumber][3] ==
-                            quiz.correctAnswers[questionNumber]) {
-                          debugPrint("Correct");
-                          finalScore++;
-                        } else {
-                          debugPrint("Wrong");
-                        }
-                        updateQuestion();
-                      },
-                      child: ClayContainer(
-                        width: 200,
-                        height: 50,
-                        borderRadius: 10,
-                        color: baseColor,
-                        child: Center(
-                          child: ClayText(
-                            quiz.choices[questionNumber][3],
-                            textColor: Colors.black,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontFamily: "SpartanRegular",
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
@@ -258,7 +245,7 @@ class Summary extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
                 child: new Text(
-                  "Congratulations! Now, let's find the best options so you can export easily!",
+                  "Parabéns! Agora vamos de volta ao Roadmap continuar avançando nesta jornada!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
@@ -283,7 +270,7 @@ class Summary extends StatelessWidget {
                     color: baseColor,
                     child: Center(
                       child: ClayText(
-                        'Continue',
+                        'Finalizar',
                         textColor: Colors.black,
                         style: TextStyle(
                           color: Colors.black,

@@ -1,8 +1,7 @@
 *Major
-- Create Feedback and PDF Download pages
 - New video (3) and quiz (lots of them) pages
 - Link 3rd Quiz results to the Map
 - Improve UI
 
-*Minor
+*Minor  
 - Activate Login validation 
