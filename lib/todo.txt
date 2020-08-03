@@ -1,7 +1,0 @@
-*Major
-- New video (3) and quiz (lots of them) pages
-- Link 3rd Quiz results to the Map
-- Improve UI
-
-*Minor  
-- Activate Login validation 

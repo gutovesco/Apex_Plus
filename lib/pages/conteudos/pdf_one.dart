@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PdfOne extends StatelessWidget {
-  // TODO replace url
   final String pdfUrl =
-      'http://ks4.imslp.net/files/imglnks/usimg/c/cf/IMSLP569901-PMLP411511-bach_bwv_807.pdf';
+      'https://drive.google.com/file/d/1GMRu46msgcpak1xCjVZ67w-u-9aT97dz/view?usp=sharing';
 
   void _launchURL(String url) async {
     if (await canLaunch(url)) {
