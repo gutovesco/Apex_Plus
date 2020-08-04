@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:expansion_card/expansion_card.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:apex_plus/pages/conteudos/quiz_three.dart';
 
 // Enum for rotation direction
 enum RotationDirection { clockwise, anticlockwise }
@@ -70,8 +71,25 @@ class _ImageView360State extends State<ImageView360> {
     }
   }
 
+  String getSetor() {
+    switch (finalScore) {
+      case 1:
+        return "Açúcar e Álcool";
+        break;
+      case 2:
+        return "Café";
+        break;
+      case 3:
+        return "Papel e Celulose";
+        break;
+      default:
+        return "Error";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    String setor = getSetor();
     return Column(
       children: <Widget>[
         SizedBox(height: 20),
@@ -108,7 +126,7 @@ class _ImageView360State extends State<ImageView360> {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
-                  'Baseado no seu produto e perfil,\nselecionamos os melhores países para você exportar',
+                  'Baseado no seu perfil e setor ($setor),\nselecionamos os melhores países para você exportar:',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 14,

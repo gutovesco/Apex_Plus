@@ -46,6 +46,9 @@ flutter:
       - assets/img/argentina.png
       - assets/img/jubileu.png
       - assets/img/mariazinha.png
+      - assets/img/acucar/
+      - assets/img/cafe/
+      - assets/img/celulose/
 
   fonts:
     - family: TitleFont

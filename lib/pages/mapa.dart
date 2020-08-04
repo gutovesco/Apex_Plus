@@ -22,28 +22,104 @@ class _Mapa extends State<Mapa> {
   Duration frameChangeDuration = Duration(milliseconds: 50);
   bool imagePrecached = false;
   bool countryPrecached = false;
-  List<String> mylist = [
-    'EUA',
-    'Japão',
+  List<String> mylistAcucar = [
+    'Índia',
+    'Argélia',
     'China',
-    'EUA',
-    'Japão',
+    'Índia',
+    'Argélia',
     'China',
-    'EUA',
-    'Japão',
+    'Índia',
+    'Argélia',
     'China',
   ];
-  List<String> descList = [
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: batman',
+  List<String> mylistCafe = [
+    'EUA',
+    'Alemanha',
+    'Itália',
+    'EUA',
+    'Alemanha',
+    'Itália',
+    'EUA',
+    'Alemanha',
+    'Itália',
   ];
+  List<String> mylistCelulose = [
+    'China',
+    'Holanda',
+    'EUA',
+    'China',
+    'Holanda',
+    'EUA',
+    'China',
+    'Holanda',
+    'EUA',
+  ];
+  List<String> descListAcucar = [
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+  ];
+  List<String> descListCafe = [
+    'Setor: Café\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Café\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Café\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Café\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Café\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Café\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Café\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Café\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Café\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+  ];
+  List<String> descListCelulose = [
+    'Setor: Celulose\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Celulose\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Celulose\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Celulose\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Celulose\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Celulose\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Celulose\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Celulose\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Celulose\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+  ];
+
+  dynamic getCountries() {
+    switch (finalScore) {
+      case 1:
+        return mylistAcucar;
+        break;
+      case 2:
+        return mylistCafe;
+        break;
+      case 3:
+        return mylistCelulose;
+        break;
+      default:
+        return mylistAcucar;
+    }
+  }
+
+  dynamic getDesc() {
+    switch (finalScore) {
+      case 1:
+        return descListAcucar;
+        break;
+      case 2:
+        return descListCafe;
+        break;
+      case 3:
+        return descListCelulose;
+        break;
+      default:
+        return descListAcucar;
+    }
+  }
 
   @override
   void initState() {
@@ -54,12 +130,27 @@ class _Mapa extends State<Mapa> {
   }
 
   void updateImageList(BuildContext context) async {
+    String imagesPath;
+    switch (finalScore) {
+      case 1:
+        imagesPath = 'acucar';
+        break;
+      case 2:
+        imagesPath = 'cafe';
+        break;
+      case 3:
+        imagesPath = 'celulose';
+        break;
+      default:
+        imagesPath = 'acucar';
+    }
     for (int i = 1; i <= 9; i++) {
-      countryList.add(AssetImage('images/${i}country.png'));
-      imageList.add(AssetImage('images/$i.png'));
+      countryList.add(AssetImage('assets/img/$imagesPath/${i}country.png'));
+      imageList.add(AssetImage('assets/img/$imagesPath/$i.png'));
       //* To precache images so that when required they are loaded faster.
-      await precacheImage(AssetImage('images/$i.png'), context);
-      await precacheImage(AssetImage('images/${i}country.png'), context);
+      await precacheImage(AssetImage('assets/img/$imagesPath/$i.png'), context);
+      await precacheImage(
+          AssetImage('assets/img/$imagesPath/${i}country.png'), context);
     }
     setState(() {
       imagePrecached = true;
@@ -87,8 +178,8 @@ class _Mapa extends State<Mapa> {
                 (imagePrecached == true)
                     ? ImageView360(
                         key: UniqueKey(),
-                        textList: mylist,
-                        descList: descList,
+                        textList: getCountries(),
+                        descList: getDesc(),
                         imageList: imageList,
                         countryList: countryList,
                         autoRotate: autoRotate,
