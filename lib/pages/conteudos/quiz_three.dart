@@ -14,24 +14,25 @@ var quiz = new InitialQuiz();
 
 class InitialQuiz {
   var choices = [
-    ["Beginner", "Intermediate", "Advanced", "Master"],
-    ["IT", "Health", "Real State", "Education"],
-    ["Yes", "No", "I used to", "More than one"],
-    ["0-4 years", "4-7 years", "More than 8 years", "Never"]
+    ["Verdadeiro", "Falso"],
+    ["Verdadeiro", "Falso"],
+    [
+      "Açúcar e Álcool",
+      "Café",
+      "Papel e Celulose",
+    ],
   ];
 
   var correctAnswers = [
-    ["Beginner", "Intermediate", "Advanced", "Master"],
-    ["IT", "Health", "Real State", "Education"],
-    ["Yes", "No", "I used to", "More than one"],
-    "Pessoas que começaram a trabalhar cedo e acabaram criando grandes empresas"
+    "Falso",
+    "Falso",
+    "Wait, it's all incorrect answers? -Always has been...",
   ];
 
   var questions = [
-    "What is your experience level in this area?",
-    "What's your business's niche?",
-    "Do you own a company?",
-    "For how long have you owned a company?",
+    "Classificar a mercadoria significa descrever o produto de forma que se torne atrativo ao comprador.",
+    "O Sistema Harmonizado buscou pacificar as relações comerciais entre os países, permitindo que cada um utilizasse a sua própria nomenclatura.",
+    "MINHA PERCEPÇÃO:\nConsiderando o conteúdo abordado em aula, como você acredita que seu produto se enquadra no sistema de classificação de mercadorias?",
   ];
 }
 
@@ -55,11 +56,13 @@ class QuizThreeState extends State<QuizThree> {
     setState(() {
       if (questionNumber == quiz.questions.length - 1) {
         Navigator.push(
-            context,
-            new MaterialPageRoute(
-                builder: (context) => new Summary(
-                      score: finalScore,
-                    )));
+          context,
+          new MaterialPageRoute(
+            builder: (context) => new Summary(
+              score: finalScore,
+            ),
+          ),
+        );
       } else {
         questionNumber++;
       }
@@ -78,7 +81,7 @@ class QuizThreeState extends State<QuizThree> {
             child: new Column(
               children: <Widget>[
                 SizedBox(
-                  height: 120,
+                  height: 40,
                 ),
                 new Padding(padding: EdgeInsets.all(20.0)),
                 new Container(
@@ -91,7 +94,7 @@ class QuizThreeState extends State<QuizThree> {
                     textAlign: TextAlign.center,
                     style: new TextStyle(
                       color: palleteBlue,
-                      fontSize: 20.0,
+                      fontSize: 18.0,
                       fontFamily: "SpartanRegular",
                     ),
                   ),
@@ -103,18 +106,14 @@ class QuizThreeState extends State<QuizThree> {
                     //button 1
                     GestureDetector(
                       onTap: () {
-                        if (quiz.choices[questionNumber][0] ==
-                            quiz.correctAnswers[questionNumber]) {
-                          debugPrint("Correct");
-                          finalScore++;
-                        } else {
-                          debugPrint("Wrong");
-                        }
+                        setState(() {
+                          finalScore = 1;
+                        });
                         updateQuestion();
                       },
                       child: ClayContainer(
-                        width: 200,
-                        height: 50,
+                        width: 230,
+                        height: 70,
                         borderRadius: 10,
                         color: baseColor,
                         child: Center(
@@ -135,18 +134,14 @@ class QuizThreeState extends State<QuizThree> {
                     //button 2
                     GestureDetector(
                       onTap: () {
-                        if (quiz.choices[questionNumber][1] ==
-                            quiz.correctAnswers[questionNumber]) {
-                          debugPrint("Correct");
-                          finalScore++;
-                        } else {
-                          debugPrint("Wrong");
-                        }
+                        setState(() {
+                          finalScore = 2;
+                        });
                         updateQuestion();
                       },
                       child: ClayContainer(
-                        width: 200,
-                        height: 50,
+                        width: 230,
+                        height: 70,
                         borderRadius: 10,
                         color: baseColor,
                         child: Center(
@@ -165,74 +160,42 @@ class QuizThreeState extends State<QuizThree> {
                   ],
                 ),
                 SizedBox(height: 20),
-                new Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    //button 3
-                    GestureDetector(
-                      onTap: () {
-                        if (quiz.choices[questionNumber][2] ==
-                            quiz.correctAnswers[questionNumber]) {
-                          debugPrint("Correct");
-                          finalScore++;
-                        } else {
-                          debugPrint("Wrong");
-                        }
-                        updateQuestion();
-                      },
-                      child: ClayContainer(
-                        width: 200,
-                        height: 50,
-                        borderRadius: 10,
-                        color: baseColor,
-                        child: Center(
-                          child: ClayText(
-                            quiz.choices[questionNumber][2],
-                            textColor: Colors.black,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontFamily: "SpartanRegular",
+                quiz.choices[questionNumber].length >= 3
+                    ? new Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          //button 3
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                finalScore = 3;
+                              });
+                              updateQuestion();
+                            },
+                            child: ClayContainer(
+                              width: 230,
+                              height: 70,
+                              borderRadius: 10,
+                              color: baseColor,
+                              child: Center(
+                                child: ClayText(
+                                  quiz.choices[questionNumber][2],
+                                  textColor: Colors.black,
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontFamily: "SpartanRegular",
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
 
-                    SizedBox(height: 20),
-
-                    //button 4
-                    GestureDetector(
-                      onTap: () {
-                        if (quiz.choices[questionNumber][3] ==
-                            quiz.correctAnswers[questionNumber]) {
-                          debugPrint("Correct");
-                          finalScore++;
-                        } else {
-                          debugPrint("Wrong");
-                        }
-                        updateQuestion();
-                      },
-                      child: ClayContainer(
-                        width: 200,
-                        height: 50,
-                        borderRadius: 10,
-                        color: baseColor,
-                        child: Center(
-                          child: ClayText(
-                            quiz.choices[questionNumber][3],
-                            textColor: Colors.black,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontFamily: "SpartanRegular",
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                          SizedBox(height: 20),
+                        ],
+                      )
+                    : SizedBox.shrink(),
+                SizedBox(height: 20),
               ],
             ),
           ),
@@ -258,7 +221,7 @@ class Summary extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
                 child: new Text(
-                  "Congratulations! Now, let's find the best options so you can export easily!",
+                  "Excelente!\nVeja agora no Mapa de Fit Cultural os principais mercados que sugerimos para você! Ah! E na aula a seguir vamos entender a importância do conhecimento sobre seus mercados e respectivas culturas ;)",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
@@ -283,7 +246,7 @@ class Summary extends StatelessWidget {
                     color: baseColor,
                     child: Center(
                       child: ClayText(
-                        'Continue',
+                        'Vamos para o mapa!!!',
                         textColor: Colors.black,
                         style: TextStyle(
                           color: Colors.black,

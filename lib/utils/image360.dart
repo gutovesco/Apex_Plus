@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:expansion_card/expansion_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // Enum for rotation direction
 enum RotationDirection { clockwise, anticlockwise }
@@ -59,6 +60,14 @@ class _ImageView360State extends State<ImageView360> {
       rotateImage();
     }
     super.initState();
+  }
+
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
@@ -172,7 +181,10 @@ class _ImageView360State extends State<ImageView360> {
                               width: 100.0,
                               height: 35.0,
                               child: RaisedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  _launchURL(
+                                      'https://paineisdeinteligencia.apexbrasil.com.br/mapa-de-oportunidades.html');
+                                },
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(30.0)),
                                 padding: EdgeInsets.all(0.0),

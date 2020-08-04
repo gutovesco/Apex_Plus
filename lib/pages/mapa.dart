@@ -1,6 +1,5 @@
-import 'package:apex_plus/widgets/new_post.dart';
-import 'package:apex_plus/styleguide/colors.dart';
-import 'package:apex_plus/styleguide/text_style.dart';
+import 'package:apex_plus/pages/bloqueado.dart';
+import 'package:apex_plus/pages/conteudos/quiz_three.dart';
 import 'package:apex_plus/utils/image360.dart';
 import 'package:flutter/material.dart';
 import '../commons/collapsing_navigation_drawer_widget.dart';
@@ -82,27 +81,29 @@ class _Mapa extends State<Mapa> {
             colors: [Colors.lightGreenAccent, Color(0xFF4dff4d)]),
       ),
       drawer: CollapsingNavigationDrawer(),
-      body: Column(
-        children: <Widget>[
-          (imagePrecached == true)
-              ? ImageView360(
-                  key: UniqueKey(),
-                  textList: mylist,
-                  descList: descList,
-                  imageList: imageList,
-                  countryList: countryList,
-                  autoRotate: autoRotate,
-                  rotationCount: rotationCount,
-                  rotationDirection: RotationDirection.anticlockwise,
-                  frameChangeDuration: Duration(milliseconds: 30),
-                  swipeSensitivity: swipeSensitivity,
-                  allowSwipeToRotate: allowSwipeToRotate,
-                )
-              : Center(
-                  child: Text("Carregando..."),
-                ),
-        ],
-      ),
+      body: finalScore != 0
+          ? Column(
+              children: <Widget>[
+                (imagePrecached == true)
+                    ? ImageView360(
+                        key: UniqueKey(),
+                        textList: mylist,
+                        descList: descList,
+                        imageList: imageList,
+                        countryList: countryList,
+                        autoRotate: autoRotate,
+                        rotationCount: rotationCount,
+                        rotationDirection: RotationDirection.anticlockwise,
+                        frameChangeDuration: Duration(milliseconds: 30),
+                        swipeSensitivity: swipeSensitivity,
+                        allowSwipeToRotate: allowSwipeToRotate,
+                      )
+                    : Center(
+                        child: Text("Carregando..."),
+                      ),
+              ],
+            )
+          : Bloqueado(map: true),
     );
   }
 }
