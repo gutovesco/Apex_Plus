@@ -3,6 +3,7 @@ import 'package:apex_plus/pages/conteudos/pdf_two.dart';
 import 'package:apex_plus/pages/conteudos/quiz_two.dart';
 import 'package:apex_plus/pages/conteudos/videoaula_two.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ListTrilhaTwo extends StatelessWidget {
   final List<String> title = [
@@ -28,7 +29,8 @@ class ListTrilhaTwo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Sobre os INCOTERMS"),
+        title: Text("Sobre os INCOTERMS",
+            style: GoogleFonts.robotoSlab(color: Colors.white)),
       ),
       body: ListView.builder(
           itemCount: 4,

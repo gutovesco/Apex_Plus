@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PdfThree extends StatelessWidget {
   final String pdfUrl =
@@ -18,7 +19,8 @@ class PdfThree extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Baixar PDF'),
+        title: Text('Baixar PDF',
+            style: GoogleFonts.robotoSlab(color: Colors.white)),
       ),
       body: Container(
         child: Column(
@@ -32,7 +34,7 @@ class PdfThree extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
-                'Título: Classificação da Mercadoria e Mercados - Edição: Maio 2020',
+                'Título: Avaliação da capacidade exportadora - Edição: Maio 2020',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'SpartanRegular',
@@ -53,22 +55,31 @@ class PdfThree extends StatelessWidget {
               ),
             ),
             Container(
-              height: 50,
-              width: 260,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(90),
-              ),
+              height: 45,
+              width: 195,
               child: RaisedButton(
                 onPressed: () {
                   _launchURL(pdfUrl);
                 },
-                color: const Color(0xFF4dff4d),
-                child: Center(
-                  child: Text(
-                    'Baixar',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0)),
+                padding: EdgeInsets.all(0.0),
+                child: Ink(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color(0xff41ea5d), Color(0xffb5f2bf)],
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                      ),
+                      borderRadius: BorderRadius.circular(30.0)),
+                  child: Container(
+                    height: 50,
+                    width: 200,
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Baixar",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                   ),
                 ),

@@ -76,198 +76,214 @@ class QuizOneState extends State<QuizOne> {
     return new WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-          body: new Container(
-            color: Colors.green,
-            margin: const EdgeInsets.all(10.0),
-            alignment: Alignment.topCenter,
-            child: new Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 40,
-                ),
-                new Padding(padding: EdgeInsets.all(20.0)),
-                new Container(
-                  alignment: Alignment.centerRight,
-                ),
-                SizedBox(height: 10),
-                Center(
-                  child: new Text(
-                    quiz.questions[questionNumber],
-                    textAlign: TextAlign.center,
-                    style: new TextStyle(
-                      color: palleteBlue,
-                      fontSize: 18.0,
-                      fontFamily: "SpartanRegular",
+          body: SingleChildScrollView(
+            child: Container(
+              margin: const EdgeInsets.all(10.0),
+              alignment: Alignment.topCenter,
+              child: new Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 40,
+                  ),
+                  new Padding(padding: EdgeInsets.all(20.0)),
+                  new Container(
+                    alignment: Alignment.centerRight,
+                  ),
+                  SizedBox(height: 10),
+                  Center(
+                    child: new Text(
+                      quiz.questions[questionNumber],
+                      textAlign: TextAlign.center,
+                      style: new TextStyle(
+                        color: palleteBlue,
+                        fontSize: 18.0,
+                        fontFamily: "SpartanRegular",
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: 20),
-                new Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    //button 1
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          finalScore = 8;
-                        });
-                        updateQuestion();
-                      },
-                      child: ClayContainer(
-                        width: 230,
-                        height: 70,
-                        borderRadius: 10,
-                        color: baseColor,
-                        child: Center(
-                          child: ClayText(
-                            quiz.choices[questionNumber][0],
-                            textColor: Colors.black,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontFamily: "SpartanRegular",
+                  SizedBox(height: 20),
+                  new Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      //button 1
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            finalScore = 8;
+                          });
+                          updateQuestion();
+                        },
+                        child: ClayContainer(
+                          width: 256,
+                          height: 58,
+                          borderRadius: 10,
+                          color: baseColor,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            child: Center(
+                              child: ClayText(
+                                quiz.choices[questionNumber][0],
+                                textColor: Colors.black,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontFamily: "SpartanRegular",
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 20),
+                      SizedBox(height: 20),
 
-                    //button 2
-                    GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          finalScore = 8;
-                        });
-                        updateQuestion();
-                      },
-                      child: ClayContainer(
-                        width: 230,
-                        height: 70,
-                        borderRadius: 10,
-                        color: baseColor,
-                        child: Center(
-                          child: ClayText(
-                            quiz.choices[questionNumber][1],
-                            textColor: Colors.black,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontFamily: "SpartanRegular",
+                      //button 2
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            finalScore = 8;
+                          });
+                          updateQuestion();
+                        },
+                        child: ClayContainer(
+                          width: 256,
+                          height: 58,
+                          borderRadius: 10,
+                          color: baseColor,
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 10, right: 10),
+                            child: Center(
+                              child: ClayText(
+                                quiz.choices[questionNumber][1],
+                                textColor: Colors.black,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontFamily: "SpartanRegular",
+                                ),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20),
-                quiz.choices[questionNumber].length >= 3
-                    ? new Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          //button 3
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                finalScore = 9;
-                              });
-                              updateQuestion();
-                            },
-                            child: ClayContainer(
-                              width: 230,
-                              height: 70,
-                              borderRadius: 10,
-                              color: baseColor,
-                              child: Center(
-                                child: ClayText(
-                                  quiz.choices[questionNumber][2],
-                                  textColor: Colors.black,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontFamily: "SpartanRegular",
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  quiz.choices[questionNumber].length >= 3
+                      ? new Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            //button 3
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  finalScore = 9;
+                                });
+                                updateQuestion();
+                              },
+                              child: ClayContainer(
+                                width: 256,
+                                height: 58,
+                                borderRadius: 10,
+                                color: baseColor,
+                                child: Padding(
+                                  padding: EdgeInsets.only(left: 10, right: 10),
+                                  child: Center(
+                                    child: ClayText(
+                                      quiz.choices[questionNumber][2],
+                                      textColor: Colors.black,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 13,
+                                        fontFamily: "SpartanRegular",
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
 
-                          SizedBox(height: 20),
-                        ],
-                      )
-                    : SizedBox.shrink(),
-                quiz.choices[questionNumber].length >= 3
-                    ? new Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          //button 4
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                finalScore = 9;
-                              });
-                              updateQuestion();
-                            },
-                            child: ClayContainer(
-                              width: 230,
-                              height: 70,
-                              borderRadius: 10,
-                              color: baseColor,
-                              child: Center(
-                                child: ClayText(
-                                  quiz.choices[questionNumber][3],
-                                  textColor: Colors.black,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontFamily: "SpartanRegular",
+                            SizedBox(height: 20),
+                          ],
+                        )
+                      : SizedBox.shrink(),
+                  quiz.choices[questionNumber].length >= 3
+                      ? new Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            //button 4
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  finalScore = 9;
+                                });
+                                updateQuestion();
+                              },
+                              child: ClayContainer(
+                                width: 256,
+                                height: 58,
+                                borderRadius: 10,
+                                color: baseColor,
+                                child: Padding(
+                                  padding: EdgeInsets.only(left: 10, right: 10),
+                                  child: Center(
+                                    child: ClayText(
+                                      quiz.choices[questionNumber][3],
+                                      textColor: Colors.black,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 13,
+                                        fontFamily: "SpartanRegular",
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
 
-                          SizedBox(height: 20),
-                        ],
-                      )
-                    : SizedBox.shrink(),
-                quiz.choices[questionNumber].length >= 3
-                    ? new Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          //button 5
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                finalScore = 10;
-                              });
-                              updateQuestion();
-                            },
-                            child: ClayContainer(
-                              width: 230,
-                              height: 70,
-                              borderRadius: 10,
-                              color: baseColor,
-                              child: Center(
-                                child: ClayText(
-                                  quiz.choices[questionNumber][4],
-                                  textColor: Colors.black,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontFamily: "SpartanRegular",
+                            SizedBox(height: 20),
+                          ],
+                        )
+                      : SizedBox.shrink(),
+                  quiz.choices[questionNumber].length >= 3
+                      ? new Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            //button 5
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  finalScore = 10;
+                                });
+                                updateQuestion();
+                              },
+                              child: ClayContainer(
+                                width: 256,
+                                height: 58,
+                                borderRadius: 10,
+                                color: baseColor,
+                                child: Padding(
+                                  padding: EdgeInsets.only(left: 10, right: 10),
+                                  child: Center(
+                                    child: ClayText(
+                                      quiz.choices[questionNumber][4],
+                                      textColor: Colors.black,
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 13,
+                                        fontFamily: "SpartanRegular",
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
 
-                          SizedBox(height: 20),
-                        ],
-                      )
-                    : SizedBox.shrink(),
-              ],
+                            SizedBox(height: 20),
+                          ],
+                        )
+                      : SizedBox.shrink(),
+                ],
+              ),
             ),
           ),
         ));
@@ -301,7 +317,6 @@ class DisplayMessage extends StatelessWidget {
       onWillPop: () async => false,
       child: Scaffold(
         body: new Container(
-          color: Colors.green,
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -312,7 +327,7 @@ class DisplayMessage extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 16,
+                    fontSize: 13,
                     fontFamily: "SpartanRegular",
                   ),
                 ),
@@ -338,7 +353,7 @@ class DisplayMessage extends StatelessWidget {
                         textColor: Colors.black,
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 16,
+                          fontSize: 13,
                           fontFamily: "SpartanRegular",
                         ),
                       ),
@@ -365,7 +380,6 @@ class Summary extends StatelessWidget {
       onWillPop: () async => false,
       child: Scaffold(
         body: new Container(
-          color: Colors.green,
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -376,7 +390,7 @@ class Summary extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 16,
+                    fontSize: 13,
                     fontFamily: "SpartanRegular",
                   ),
                 ),
@@ -401,7 +415,7 @@ class Summary extends StatelessWidget {
                         textColor: Colors.black,
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 16,
+                          fontSize: 13,
                           fontFamily: "SpartanRegular",
                         ),
                       ),

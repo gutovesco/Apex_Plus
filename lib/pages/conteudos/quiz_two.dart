@@ -2,6 +2,7 @@ import 'package:apex_plus/pages/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:clay_containers/clay_containers.dart';
 import 'package:dropdownfield/dropdownfield.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 Color palleteBlue = Color(0xff010a43);
 Color palleteLightPink = Color(0xffffc2c2);
@@ -87,8 +88,8 @@ class QuizTwoState extends State<QuizTwo> {
     return new WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-          body: new Container(
-            color: Colors.green,
+            body: SingleChildScrollView(
+          child: Container(
             margin: const EdgeInsets.all(10.0),
             alignment: Alignment.topCenter,
             child: new Column(
@@ -115,13 +116,13 @@ class QuizTwoState extends State<QuizTwo> {
                 SizedBox(height: 20),
                 quiz.choices[questionNumber].length >= 4
                     ? Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           DropDownField(
                             value: value,
                             itemsVisibleInDropdown: 3,
                             labelText: 'Selecione',
-                            labelStyle: TextStyle(color: Colors.white),
+                            labelStyle: TextStyle(color: Colors.black),
                             icon: Icon(Icons.airplanemode_active),
                             items: quiz.choices[3],
                             setter: (dynamic newValue) {
@@ -137,20 +138,43 @@ class QuizTwoState extends State<QuizTwo> {
                           SizedBox(
                             height: 20,
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              updateQuestion();
-                            },
-                            child: Container(
-                              color: Colors.amber,
-                              height: 50,
-                              width: 200,
-                              child: Center(
-                                child: Text(
-                                  'Enviar',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 32,
+                          Center(
+                            child: Padding(
+                              padding: EdgeInsets.only(bottom: 20, top: 10),
+                              child: Container(
+                                width: 330.0,
+                                height: 42.0,
+                                child: RaisedButton(
+                                  onPressed: () {
+                                    updateQuestion();
+                                  },
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(30.0)),
+                                  padding: EdgeInsets.all(0.0),
+                                  child: Ink(
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color(0xff41ea5d),
+                                            Color(0xffb5f2bf)
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(30.0)),
+                                    child: Container(
+                                      constraints: BoxConstraints(
+                                          maxWidth: 300.0, minHeight: 50.0),
+                                      alignment: Alignment.center,
+                                      child: Text(
+                                        'Enviar',
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.robotoSlab(
+                                            color: Colors.white),
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -223,7 +247,7 @@ class QuizTwoState extends State<QuizTwo> {
               ],
             ),
           ),
-        ));
+        )));
   }
 }
 
@@ -238,7 +262,6 @@ class Summary extends StatelessWidget {
       onWillPop: () async => false,
       child: Scaffold(
         body: new Container(
-          color: Colors.green,
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

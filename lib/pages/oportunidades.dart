@@ -5,6 +5,7 @@ import 'package:expansion_card/expansion_card.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class OportunidadesPage extends StatefulWidget {
   @override
@@ -68,7 +69,14 @@ class Oportunidades extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [Text('Oportunidades'), Icon(Icons.filter_list)],
+          children: [
+            Text('Oportunidades',
+                style: GoogleFonts.robotoSlab(color: Colors.white)),
+            Icon(
+              Icons.filter_list,
+              color: Colors.white,
+            )
+          ],
         ),
         gradient: LinearGradient(
             colors: [Colors.lightGreenAccent, Color(0xFF4dff4d)]),
@@ -86,7 +94,7 @@ class Oportunidades extends StatelessWidget {
                   child: Neumorphic(
                     style: NeumorphicStyle(
                         shape: NeumorphicShape.concave,
-                        depth: 8,
+                        depth: 5,
                         lightSource: LightSource.topLeft,
                         color: Colors.white),
                     child: ExpansionCard(
@@ -135,11 +143,11 @@ class Oportunidades extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Padding(
-                                  padding:
-                                      EdgeInsets.only(right: 30, bottom: 20),
+                                  padding: EdgeInsets.only(
+                                      right: 30, bottom: 20, top: 10),
                                   child: Container(
                                     width: 100.0,
-                                    height: 35.0,
+                                    height: 32.0,
                                     child: RaisedButton(
                                       onPressed: () {
                                         if (titulo[index].startsWith('[E'))
@@ -155,13 +163,13 @@ class Oportunidades extends StatelessWidget {
                                               colors: [
                                                 titulo[index].startsWith('[E')
                                                     ? Color(0xff41ea5d)
-                                                    : Colors.orange,
+                                                    : Color(0xfffc8a11),
                                                 titulo[index].startsWith('[E')
                                                     ? Color(0xffb5f2bf)
-                                                    : Colors.orangeAccent
+                                                    : Color(0xfff4b066)
                                               ],
-                                              begin: Alignment.centerLeft,
-                                              end: Alignment.centerRight,
+                                              begin: Alignment.topLeft,
+                                              end: Alignment.bottomRight,
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(30.0)),
@@ -174,8 +182,8 @@ class Oportunidades extends StatelessWidget {
                                                 ? "Detalhes"
                                                 : 'Seja Premium',
                                             textAlign: TextAlign.center,
-                                            style:
-                                                TextStyle(color: Colors.white),
+                                            style: GoogleFonts.robotoSlab(
+                                                color: Colors.white),
                                           ),
                                         ),
                                       ),
@@ -205,16 +213,20 @@ void choiceAction(String choice) {
     showDialog(
         builder: (BuildContext context) {
           return AlertDialog(
-            title: new Text("Equipe 9"),
+            title: new Text(
+              "Equipe 9",
+              style: GoogleFonts.robotoSlab(),
+            ),
             content: InkWell(
               child: new Text(
-                  "Samuel Santos\nAugusto Vesco\nCaio Pedroso\nYves Alvim\nJoão Marcos\nGitRepo: https://github.com/gutovesco/Apex_Plus"),
+                  "Samuel Santos\nAugusto Vesco\nCaio Pedroso\nYves Alvim\nJoão Marcos\nGitRepo: https://github.com/gutovesco/Apex_Plus",
+                  style: GoogleFonts.robotoSlab()),
             ),
             //new Text(),
             actions: <Widget>[
               // usually buttons at the bottom of the dialog
               new FlatButton(
-                child: new Text("OK"),
+                child: new Text("OK", style: GoogleFonts.robotoSlab()),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },

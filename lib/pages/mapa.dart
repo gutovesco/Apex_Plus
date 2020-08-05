@@ -4,6 +4,7 @@ import 'package:apex_plus/utils/image360.dart';
 import 'package:flutter/material.dart';
 import '../commons/collapsing_navigation_drawer_widget.dart';
 import 'package:gradient_app_bar/gradient_app_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Mapa extends StatefulWidget {
   @override
@@ -164,7 +165,8 @@ class _Mapa extends State<Mapa> {
         automaticallyImplyLeading: false,
         title: Row(
           children: [
-            Text('Mapa e FitCultural'),
+            Text('Mapa e FitCultural',
+                style: GoogleFonts.robotoSlab(color: Colors.white)),
           ],
         ),
 //        centerTitle: true,

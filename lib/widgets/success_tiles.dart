@@ -45,7 +45,8 @@ class SuccessTimelineState extends State<SuccessTimeline> {
             automaticallyImplyLeading: false,
             title: Row(
               children: [
-                Text('Roadmap'),
+                Text('Roadmap',
+                    style: GoogleFonts.robotoSlab(color: Colors.white)),
               ],
             ),
 //        centerTitle: true,
@@ -351,15 +352,15 @@ class _Header extends StatelessWidget {
                     padding: const EdgeInsets.all(2),
                     margin: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
-                      color: Colors.orange.withOpacity(0.5),
+                      color: Colors.white,
                       borderRadius: const BorderRadius.all(Radius.circular(8)),
                     ),
                     child: Text(
                       'Trilha do exportador',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 26,
-                        color: Colors.white,
+                      style: GoogleFonts.robotoSlab(
+                        fontSize: 22,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

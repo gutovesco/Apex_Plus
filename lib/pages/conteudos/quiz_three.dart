@@ -74,8 +74,8 @@ class QuizThreeState extends State<QuizThree> {
     return new WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-          body: new Container(
-            color: Colors.green,
+            body: SingleChildScrollView(
+          child: Container(
             margin: const EdgeInsets.all(10.0),
             alignment: Alignment.topCenter,
             child: new Column(
@@ -199,7 +199,7 @@ class QuizThreeState extends State<QuizThree> {
               ],
             ),
           ),
-        ));
+        )));
   }
 }
 
@@ -214,7 +214,6 @@ class Summary extends StatelessWidget {
       onWillPop: () async => false,
       child: Scaffold(
         body: new Container(
-          color: Colors.green,
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

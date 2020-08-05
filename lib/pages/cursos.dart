@@ -11,8 +11,7 @@ class _HeaderCursos extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       margin: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.green,
-        borderRadius: const BorderRadius.all(Radius.circular(8)),
+        borderRadius: const BorderRadius.all(Radius.circular(18)),
       ),
       child: Column(
         children: [
@@ -22,9 +21,9 @@ class _HeaderCursos extends StatelessWidget {
                 child: Text(
                   'Cursos Premium',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: GoogleFonts.robotoSlab(
                     fontSize: 26,
-                    color: Colors.yellow,
+                    color: Color(0xFf00d623),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -55,7 +54,11 @@ class Cursos extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [Text('Seja um Assinante'), Icon(Icons.monetization_on)],
+          children: [
+            Text('Seja um Assinante',
+                style: GoogleFonts.robotoSlab(color: Colors.white)),
+            Icon(Icons.monetization_on, color: Colors.white)
+          ],
         ),
 //        centerTitle: true,
         gradient: LinearGradient(
@@ -71,9 +74,9 @@ class Cursos extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 20),
                     Center(
                         child: Container(
+                      margin: EdgeInsets.only(bottom: 10),
                       width: 300,
                       child: neo.Neumorphic(
                         style: neo.NeumorphicStyle(
@@ -86,7 +89,7 @@ class Cursos extends StatelessWidget {
                           borderRadius: 30,
                           leading: Icon(
                             Icons.star_border,
-                            size: 30.0,
+                            size: 40.0,
                             color: Colors.blueAccent,
                           ),
                           backgroundColor: Colors.lightGreenAccent[300],
@@ -139,8 +142,8 @@ class Cursos extends StatelessWidget {
                                             decoration: BoxDecoration(
                                                 gradient: LinearGradient(
                                                   colors: [
-                                                    Colors.orange,
-                                                    Colors.orangeAccent
+                                                    Color(0xfffc8a11),
+                                                    Color(0xfff4b066)
                                                   ],
                                                   begin: Alignment.centerLeft,
                                                   end: Alignment.centerRight,
@@ -156,7 +159,7 @@ class Cursos extends StatelessWidget {
                                               child: Text(
                                                 "Assinar",
                                                 textAlign: TextAlign.center,
-                                                style: TextStyle(
+                                                style: GoogleFonts.robotoSlab(
                                                     color: Colors.white),
                                               ),
                                             ),

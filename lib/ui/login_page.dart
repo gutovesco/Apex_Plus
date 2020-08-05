@@ -211,7 +211,8 @@ class _LoginPageState extends State<LoginPage>
   }
 
   Widget _buildSignIn(BuildContext context) {
-    return Container(
+    return SingleChildScrollView(
+        child: Container(
       padding: EdgeInsets.only(top: 23.0),
       child: Column(
         children: <Widget>[
@@ -364,7 +365,7 @@ class _LoginPageState extends State<LoginPage>
           ),
         ],
       ),
-    );
+    ));
   }
 
   Widget _buildSignUp(BuildContext context) {

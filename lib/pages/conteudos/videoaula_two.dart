@@ -1,6 +1,7 @@
 import 'package:apex_plus/ui/play_pause_overlay.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class VideoaulaTwo extends StatefulWidget {
   @override
@@ -52,7 +53,8 @@ class _VideoaulaTwoState extends State<VideoaulaTwo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Aula 1"),
+        title:
+            Text("Aula 2", style: GoogleFonts.robotoSlab(color: Colors.white)),
         centerTitle: true,
       ),
       body: LayoutBuilder(
@@ -82,6 +84,7 @@ class _VideoaulaTwoState extends State<VideoaulaTwo> {
                       height: 10,
                     ),
                     Container(
+                      padding: EdgeInsets.only(left: 10),
                       width: MediaQuery.of(context).size.width,
                       child: Text(
                         "Descrição",
@@ -111,8 +114,8 @@ class _VideoaulaTwoState extends State<VideoaulaTwo> {
                   height: 10,
                 ),
                 Container(
-                  height: 55,
-                  width: 205,
+                  height: 45,
+                  width: 195,
                   child: RaisedButton(
                     onPressed: () {
                       Navigator.pop(context);
@@ -135,7 +138,7 @@ class _VideoaulaTwoState extends State<VideoaulaTwo> {
                         child: Text(
                           "Próxima Aula",
                           textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                       ),
                     ),
