@@ -13,6 +13,7 @@ Color baseColor = Color(0xFFF2F2F2);
 var finalScore = 0;
 var questionNumber = 0;
 var quiz = new InitialQuiz();
+var clicked = false;
 
 class InitialQuiz {
   var choices = [
@@ -86,9 +87,9 @@ class QuizTwoState extends State<QuizTwo> {
   Widget build(BuildContext context) {
     String value = 'N/A';
     return new WillPopScope(
-        onWillPop: () async => false,
-        child: Scaffold(
-            body: SingleChildScrollView(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: SingleChildScrollView(
           child: Container(
             margin: const EdgeInsets.all(10.0),
             alignment: Alignment.topCenter,
@@ -97,7 +98,20 @@ class QuizTwoState extends State<QuizTwo> {
                 SizedBox(
                   height: 40,
                 ),
-                new Padding(padding: EdgeInsets.all(20.0)),
+                new Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: CircleAvatar(
+                    radius: 40,
+                    backgroundColor: Colors.orange,
+                    child: Text(
+                      (questionNumber + 1).toString(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 36,
+                      ),
+                    ),
+                  ),
+                ),
                 new Container(
                   alignment: Alignment.centerRight,
                 ),
@@ -247,7 +261,9 @@ class QuizTwoState extends State<QuizTwo> {
               ],
             ),
           ),
-        )));
+        ),
+      ),
+    );
   }
 }
 

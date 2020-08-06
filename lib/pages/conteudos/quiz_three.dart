@@ -11,6 +11,7 @@ Color baseColor = Color(0xFFF2F2F2);
 var finalScore = 0;
 var questionNumber = 0;
 var quiz = new InitialQuiz();
+var clicked = false;
 
 class InitialQuiz {
   var choices = [
@@ -53,28 +54,31 @@ class QuizThreeState extends State<QuizThree> {
   }
 
   void updateQuestion() {
-    setState(() {
-      if (questionNumber == quiz.questions.length - 1) {
-        Navigator.push(
-          context,
-          new MaterialPageRoute(
-            builder: (context) => new Summary(
-              score: finalScore,
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        if (questionNumber == quiz.questions.length - 1) {
+          Navigator.push(
+            context,
+            new MaterialPageRoute(
+              builder: (context) => new Summary(
+                score: finalScore,
+              ),
             ),
-          ),
-        );
-      } else {
-        questionNumber++;
-      }
+          );
+        } else {
+          questionNumber++;
+        }
+        clicked = false;
+      });
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return new WillPopScope(
-        onWillPop: () async => false,
-        child: Scaffold(
-            body: SingleChildScrollView(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: SingleChildScrollView(
           child: Container(
             margin: const EdgeInsets.all(10.0),
             alignment: Alignment.topCenter,
@@ -83,7 +87,20 @@ class QuizThreeState extends State<QuizThree> {
                 SizedBox(
                   height: 40,
                 ),
-                new Padding(padding: EdgeInsets.all(20.0)),
+                new Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: CircleAvatar(
+                    radius: 40,
+                    backgroundColor: Colors.orange,
+                    child: Text(
+                      (questionNumber + 1).toString(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 36,
+                      ),
+                    ),
+                  ),
+                ),
                 new Container(
                   alignment: Alignment.centerRight,
                 ),
@@ -108,6 +125,7 @@ class QuizThreeState extends State<QuizThree> {
                       onTap: () {
                         setState(() {
                           finalScore = 1;
+                          clicked = true;
                         });
                         updateQuestion();
                       },
@@ -136,6 +154,7 @@ class QuizThreeState extends State<QuizThree> {
                       onTap: () {
                         setState(() {
                           finalScore = 2;
+                          clicked = true;
                         });
                         updateQuestion();
                       },
@@ -169,6 +188,7 @@ class QuizThreeState extends State<QuizThree> {
                             onTap: () {
                               setState(() {
                                 finalScore = 3;
+                                clicked = true;
                               });
                               updateQuestion();
                             },
@@ -195,11 +215,31 @@ class QuizThreeState extends State<QuizThree> {
                         ],
                       )
                     : SizedBox.shrink(),
-                SizedBox(height: 20),
+                questionNumber < 2
+                    ? Opacity(
+                        opacity: clicked ? 1.0 : 0.0,
+                        child: Column(
+                          children: [
+                            Text(
+                              'Resposta correta:',
+                              style: TextStyle(
+                                color: Colors.green,
+                              ),
+                            ),
+                            Text(
+                              quiz.correctAnswers[questionNumber],
+                              style: TextStyle(color: Colors.red),
+                            ),
+                          ],
+                        ),
+                      )
+                    : SizedBox.shrink()
               ],
             ),
           ),
-        )));
+        ),
+      ),
+    );
   }
 }
 
@@ -217,10 +257,15 @@ class Summary extends StatelessWidget {
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Icon(
+                Icons.insert_emoticon,
+                color: Colors.green,
+                size: 48,
+              ),
               Padding(
-                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                padding: EdgeInsets.fromLTRB(30, 20, 30, 0),
                 child: new Text(
-                  "Excelente!\nVeja agora no Mapa de Fit Cultural os principais mercados que sugerimos para você! Ah! E na aula a seguir vamos entender a importância do conhecimento sobre seus mercados e respectivas culturas ;)",
+                  "Excelente!\n\nMapa de Fit Cultural DESBLOQUEADO!!!\n\nConfira os principais mercados que sugerimos para você! ;)",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,

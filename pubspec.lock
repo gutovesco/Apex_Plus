@@ -28,7 +28,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.2"
+    version: "2.4.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -78,6 +78,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.14.13"
+  confetti:
+    dependency: "direct dev"
+    description:
+      name: confetti
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.4"
   convert:
     dependency: transitive
     description:
@@ -415,6 +422,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.4"
+  random_color:
+    dependency: transitive
+    description:
+      name: random_color
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.5"
   rflutter_alert:
     dependency: "direct dev"
     description:
@@ -447,7 +461,7 @@ packages:
       name: stack_trace
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.5"
+    version: "1.9.3"
   stream_channel:
     dependency: transitive
     description:

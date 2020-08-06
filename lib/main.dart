@@ -42,7 +42,7 @@ void main() {
         LinkData(
             title: 'Demo',
             icon: Image.asset('images/youtube.png', fit: BoxFit.fitHeight),
-            url: 'https://www.youtube.com/'),
+            url: 'https://www.youtube.com/watch?v=rp8XFugU1FI'),
         LinkData.github('https://github.com/gutovesco/Apex_Plus'),
       ],
       logoLink: LinkData(

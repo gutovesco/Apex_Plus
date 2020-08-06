@@ -57,15 +57,15 @@ class _Mapa extends State<Mapa> {
     'EUA',
   ];
   List<String> descListAcucar = [
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
-    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: Empresa X',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: Empresa X',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: Empresa X',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: Empresa X',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: Empresa X',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: Empresa X',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: Empresa X',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: Empresa X',
+    'Setor: Açúcar e Álcool\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: Empresa X',
   ];
   List<String> descListCafe = [
     'Setor: Café\nCresc. Médio (2015-2018): xxx\nParticipação do Brasil (2018): xxx\nPrincipal Concorrente: abc',

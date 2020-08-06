@@ -20,7 +20,7 @@ class ShowMap extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              "Você precisa fazer o Quiz da Trilha de Classificação da Mercadoria e Mercados para desbloquear o mapa!",
+              "Faça o Quiz da Trilha de Classificação da Mercadoria e Mercados para desbloquear o mapa!",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,
